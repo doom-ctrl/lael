@@ -68,7 +68,12 @@ async function requireUser(ctx: {
 export const getMyPreferences = query({
   args: {},
   handler: async (ctx) => {
-    const user = await requireUser(ctx);
+    let user: { _id: string } | null = null;
+    try {
+      user = await requireUser(ctx);
+    } catch {
+      return null;
+    }
     const doc = await ctx.db
       .query("userPreferences")
       .withIndex("by_user", (q) => q.eq("userId", user._id))

@@ -99,7 +99,8 @@ function toClient(doc: Doc<"assessments">) {
 export const list = query({
   args: {},
   handler: async (ctx) => {
-    const user = await requireUser(ctx);
+    let user: { _id: string } | null = null;
+    try { user = await requireUser(ctx); } catch { return []; }
     const docs = await ctx.db
       .query("assessments")
       .withIndex("by_user_created", (q) => q.eq("userId", user._id))
@@ -117,7 +118,8 @@ export const list = query({
 export const listByMonth = query({
   args: { year: v.number(), month: v.number() },
   handler: async (ctx, { year, month }) => {
-    const user = await requireUser(ctx);
+    let user: { _id: string } | null = null;
+    try { user = await requireUser(ctx); } catch { return []; }
     const start = Date.UTC(year, month, 1);
     const end = Date.UTC(year, month + 1, 1);
     const docs = await ctx.db
@@ -252,7 +254,8 @@ export const remove = mutation({
 export const counts = query({
   args: {},
   handler: async (ctx) => {
-    const user = await requireUser(ctx);
+    let user: { _id: string } | null = null;
+    try { user = await requireUser(ctx); } catch { return { total: 0, completed: 0, pending: 0, inProgress: 0 }; }
     const all = await ctx.db
       .query("assessments")
       .withIndex("by_user", (q) => q.eq("userId", user._id))
