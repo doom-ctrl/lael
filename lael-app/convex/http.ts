@@ -22,6 +22,7 @@ authComponent.registerRoutes(http, createAuth, {
       process.env.SITE_URL ?? "http://localhost:5173",
       "http://localhost",
       "http://localhost:80",
+      "https://lael-one.vercel.app",
     ],
   },
 });
