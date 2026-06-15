@@ -1,0 +1,259 @@
+@import 'tailwindcss';
+
+/* ─── Design tokens (Lael — Direction B: Warm Editorial) ─────────────────── */
+@theme {
+  /* Backgrounds */
+  --color-bg: #FBF8F3;
+  --color-bg-warm: #F5F0E8;
+  --color-surface: #FFFEFA;
+  --color-surface-alt: #F5F0E8;
+
+  /* Borders */
+  --color-border: #E2DAD0;
+  --color-border-base: #E2DAD0;
+  --color-border-light: #EDE6DC;
+
+  /* Text */
+  --color-text-primary: #1C1917;
+  --color-text-secondary: #78716C;
+  --color-text-tertiary: #A8A29E;
+
+  /* Accent (forest green) */
+  --color-accent: #166534;
+  --color-accent-hover: #14532D;
+  --color-accent-light: #F0FDF4;
+  --color-accent-border: #BBF7D0;
+
+  /* Status */
+  --color-success: #15803D;
+  --color-success-light: #F0FDF4;
+  --color-warning: #B45309;
+  --color-warning-light: #FFFBEB;
+  --color-warning-border: #FDE68A;
+  --color-danger: #B91C1C;
+  --color-danger-light: #FEF2F2;
+  --color-danger-border: #FECACA;
+  --color-info: #1D4ED8;
+  --color-info-light: #EFF6FF;
+  --color-info-border: #BFDBFE;
+  --color-purple: #7C3AED;
+  --color-purple-light: #FAF5FF;
+  --color-purple-border: #E9D5FF;
+
+  /* Typography */
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 4px rgba(28, 25, 23, 0.05);
+  --shadow-md: 0 4px 16px rgba(28, 25, 23, 0.08);
+  --shadow-lg: 0 12px 40px rgba(28, 25, 23, 0.10);
+  --shadow-xl: 0 20px 60px rgba(28, 25, 23, 0.12);
+  --shadow-modal: 0 32px 100px -20px rgba(28, 25, 23, 0.4),
+    0 0 0 1px rgba(28, 25, 23, 0.06);
+
+  /* Navbar translucent background (theme-aware) */
+  --color-navbar-bg: rgba(251, 248, 243, 0.96);
+
+  /* Solid button background — same as accent in light, dimmed in dark */
+  --color-accent-btn: #166534;
+  --color-accent-btn-shadow: rgba(22, 101, 52, 0.25);
+}
+
+/* ─── Global resets ──────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Smooth theme transitions — only for color-bearing properties,
+     and disabled when the user prefers reduced motion. */
+  html.theme-animating,
+  html.theme-animating *,
+  html.theme-animating *::before,
+  html.theme-animating *::after {
+    transition: background-color 0.18s ease, color 0.18s ease,
+      border-color 0.18s ease, box-shadow 0.18s ease !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-animating,
+    html.theme-animating *,
+    html.theme-animating *::before,
+    html.theme-animating *::after {
+      transition: none !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-base);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+  }
+}
+
+/* ─── Keyframe animations (used by Modal) ────────────────────────────────── */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Route transitions (subtle fade between pages) ─────────────────────── */
+@keyframes route-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.route-enter {
+  animation: route-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-enter {
+    animation: none;
+  }
+}
+
+/* ─── Dark theme ─────────────────────────────────────────────────────────── */
+/*
+ * Direction B dark palette — warm, low-contrast, not jet-black.
+ * Applied by toggling `html.dark` from `useTheme()`. Tokens
+ * (--color-bg, --color-text-primary, etc.) are redefined here so
+ * every component that already references them works without
+ * per-component changes.
+ *
+ * Color picks:
+ *   - bg:    #15110D (warm near-black, not pure black)
+ *   - surface: #1F1A14 (slightly lifted, still warm)
+ *   - borders stay desaturated so they don't compete
+ *   - accent (forest green) keeps the same hue but a brighter shade
+ *     for adequate contrast on dark
+ *   - status tints get darker backgrounds and brighter text so the
+ *     "pill" reads as a tag, not a faded chip
+ */
+html.dark {
+  /* Backgrounds */
+  --color-bg: #15110D;
+  --color-bg-warm: #1C1812;
+  --color-surface: #1F1A14;
+  --color-surface-alt: #251F18;
+
+  /* Borders */
+  --color-border: #2E2820;
+  --color-border-base: #2E2820;
+  --color-border-light: #251F18;
+
+  /* Text — cream-on-warm, not white-on-black */
+  --color-text-primary: #F2EBDD;
+  --color-text-secondary: #A8A29E;
+  --color-text-tertiary: #78716C;
+
+  /* Accent — brighter forest green for AA contrast on dark */
+  --color-accent: #4ADE80;
+  --color-accent-hover: #22C55E;
+  --color-accent-light: #1A2E22;
+  --color-accent-border: #2F4F38;
+
+  /* Status */
+  --color-success: #4ADE80;
+  --color-success-light: #1A2E22;
+  --color-warning: #FBBF24;
+  --color-warning-light: #2E2410;
+  --color-warning-border: #4D3A18;
+  --color-danger: #F87171;
+  --color-danger-light: #2E1818;
+  --color-danger-border: #4D2424;
+  --color-info: #60A5FA;
+  --color-info-light: #16243A;
+  --color-info-border: #1F3A5F;
+  --color-purple: #C4B5FD;
+  --color-purple-light: #231B3A;
+  --color-purple-border: #3A2D5F;
+
+  /* Shadows — softer on dark (would otherwise smear the warm tones) */
+  --shadow-soft: 0 1px 4px rgba(0, 0, 0, 0.30);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.40);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --shadow-modal: 0 32px 100px -20px rgba(0, 0, 0, 0.60),
+    0 0 0 1px rgba(0, 0, 0, 0.40);
+
+  /* Navbar translucent background — warm dark tint with the same
+     alpha as the light variant so the blur layer looks identical. */
+  --color-navbar-bg: rgba(21, 17, 13, 0.96);
+
+  /* Solid button background — muted mid-green so the button reads as
+     a clear CTA without the neon brightness of the text-accent (#4ADE80). */
+  --color-accent-btn: #1f6e42;
+  --color-accent-btn-shadow: rgba(31, 110, 66, 0.30);
+}

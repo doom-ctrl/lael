@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lael — Design Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="shared.js"></script>
+<style id="global-styles"></style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  // Inject global styles
+  document.getElementById('global-styles').textContent = window.Lael.GLOBAL_STYLES;
+</script>
+<script type="text/babel">
+const { PALETTE, TYPOGRAPHY } = window.Lael;
+
+function App() {
+  const pages = [
+    { name: 'Dashboard', file: 'dashboard.html', desc: 'Overview, stats, and upcoming items at a glance', icon: '◐' },
+    { name: 'Assessments', file: 'assessments.html', desc: 'Full list with filters, search, and multiple views', icon: '☰' },
+    { name: 'Calendar', file: 'calendar.html', desc: 'Month grid showing assessments plotted by due date', icon: '▦' },
+    { name: 'Settings', file: 'settings.html', desc: 'Customize your profile, appearance, and notifications', icon: '⚙' },
+  ];
+
+  return (
+    <div style={{ minHeight: '100vh', padding: '60px 40px 80px' }}>
+      <div style={{ maxWidth: 1080, margin: '0 auto' }}>
+
+        {/* Header */}
+        <div style={{ marginBottom: 56, textAlign: 'center' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+            <div style={{ width: 40, height: 40, background: PALETTE.accent, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                <path d="M3 4h10M3 8h7M3 12h5" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <h1 style={{ fontFamily: TYPOGRAPHY.display, fontSize: 36, fontWeight: 400, color: PALETTE.textPrimary, fontStyle: 'italic', letterSpacing: '-0.02em' }}>
+              Lael
+            </h1>
+          </div>
+          <p style={{ fontSize: 16, color: PALETTE.textSecondary, marginBottom: 6 }}>Design Prototype</p>
+          <p style={{ fontSize: 13, color: PALETTE.textTertiary }}>Direction B · Warm Editorial · Click any page to explore</p>
+        </div>
+
+        {/* Pages grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+          {pages.map((page, i) => (
+            <a key={page.name} href={page.file} style={{
+              background: PALETTE.surface,
+              border: `1px solid ${PALETTE.border}`,
+              borderRadius: 16, padding: '32px 28px',
+              textDecoration: 'none', color: 'inherit',
+              boxShadow: PALETTE.shadow,
+              transition: 'all 0.2s ease',
+              display: 'block',
+              position: 'relative', overflow: 'hidden',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px)';
+              e.currentTarget.style.boxShadow = PALETTE.shadowMd;
+              e.currentTarget.style.borderColor = PALETTE.accentBorder;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = PALETTE.shadow;
+              e.currentTarget.style.borderColor = PALETTE.border;
+            }}
+            >
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0, height: 3,
+                background: i % 2 === 0 ? PALETTE.accent : PALETTE.warning,
+              }} />
+              <div style={{
+                width: 48, height: 48, borderRadius: 10,
+                background: PALETTE.accentLight, border: `1px solid ${PALETTE.accentBorder}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: 18,
+                fontFamily: TYPOGRAPHY.display, fontSize: 24, color: PALETTE.accent, fontStyle: 'italic',
+              }}>
+                {page.icon}
+              </div>
+              <h2 style={{
+                fontFamily: TYPOGRAPHY.display, fontSize: 22, fontWeight: 400,
+                color: PALETTE.textPrimary, fontStyle: 'italic', letterSpacing: '-0.01em',
+                marginBottom: 8,
+              }}>
+                {page.name}
+              </h2>
+              <p style={{ fontSize: 13.5, color: PALETTE.textSecondary, marginBottom: 18, lineHeight: 1.5 }}>
+                {page.desc}
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: PALETTE.accent, fontWeight: 500 }}>
+                <span>Open page</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div style={{ textAlign: 'center', marginTop: 60, paddingTop: 32, borderTop: `1px solid ${PALETTE.border}` }}>
+          <p style={{ fontSize: 12, color: PALETTE.textTertiary }}>
+            Lael · Assessment Manager · v0.1 Prototype
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

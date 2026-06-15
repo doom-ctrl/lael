@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lael — Assessments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="shared.js"></script>
+<style id="global-styles"></style>
+<style>
+  .filter-bar-sticky {
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+    background: rgba(251,248,243,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin: 0 -32px 16px;
+    padding: 14px 32px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .filter-bar-sticky.scrolled { border-bottom-color: #E2DAD0; }
+  .row-hover { transition: all 0.18s ease; }
+  .row-hover:hover { background: #F5F0E8 !important; }
+  .row-hover:hover .row-edit { opacity: 1 !important; }
+  .row-edit { opacity: 0; transition: opacity 0.15s ease; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  document.getElementById('global-styles').textContent = window.Lael.GLOBAL_STYLES;
+</script>
+<script type="text/babel">
+const {
+  PALETTE, TYPOGRAPHY, ASSESSMENTS, TYPE_LABELS, TYPE_COLORS,
+  PRIORITY_CONFIG, STATUS_CONFIG, Navbar, PageHeader, Modal, AddAssessmentForm
+} = window.Lael;
+
+function FilterChip({ active, onClick, children, count }) {
+  return (
+    <button onClick={onClick} style={{
+      display: 'inline-flex', alignItems: 'center', gap: 5,
+      padding: '5px 11px', borderRadius: 20, cursor: 'pointer',
+      fontFamily: TYPOGRAPHY.body, fontSize: 12, fontWeight: 500,
+      color: active ? '#fff' : PALETTE.textSecondary,
+      background: active ? PALETTE.accent : PALETTE.surface,
+      border: `1px solid ${active ? PALETTE.accent : PALETTE.border}`,
+      transition: 'all 0.15s ease',
+    }}>
+      {children}
+      {count !== undefined && (
+        <span style={{ fontSize: 10, fontWeight: 600, color: active ? 'rgba(255,255,255,0.85)' : PALETTE.textTertiary }}>
+          {count}
+        </span>
+      )}
+    </button>
+  );
+}
+
+function AssessmentRow({ item }) {
+  const [checked, setChecked] = React.useState(item.status === 'completed');
+  const dateBadge = window.Lael.formatDateBadge(item.dueDate);
+  const overdue = window.Lael.isOverdue(item);
+  const completed = item.status === 'completed';
+  const typeStyle = TYPE_COLORS[item.type];
+  const priorityStyle = PRIORITY_CONFIG[item.priority];
+  const statusStyle = STATUS_CONFIG[overdue ? 'overdue' : item.status];
+
+  return (
+    <div className="row-hover" style={{
+      display: 'grid', gridTemplateColumns: 'auto 44px 1fr auto auto',
+      alignItems: 'center', gap: 14,
+      background: PALETTE.surface, border: `1px solid ${PALETTE.borderLight}`,
+      borderRadius: 10, padding: '9px 14px', cursor: 'pointer',
+      opacity: completed ? 0.6 : 1,
+    }}>
+      <button onClick={(e) => { e.stopPropagation(); setChecked(!checked); }} style={{
+        width: 20, height: 20, borderRadius: 6, flexShrink: 0,
+        border: `1.5px solid ${checked ? PALETTE.accent : PALETTE.border}`,
+        background: checked ? PALETTE.accent : 'transparent',
+        cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        transition: 'all 0.15s ease',
+      }}>
+        {checked ? <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6.5l2.5 2.5L10 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg> : null}
+      </button>
+      <div style={{
+        width: 40, height: 40, borderRadius: 9, flexShrink: 0,
+        background: completed ? PALETTE.successLight : (overdue ? PALETTE.dangerLight : PALETTE.accentLight),
+        border: `1px solid ${completed ? PALETTE.accentBorder : (overdue ? PALETTE.dangerBorder : PALETTE.accentBorder)}`,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      }}>
+        <span style={{ fontSize: 8, fontWeight: 700, color: completed ? PALETTE.success : (overdue ? PALETTE.danger : PALETTE.accent), textTransform: 'uppercase', letterSpacing: '0.08em', lineHeight: 1.2 }}>{dateBadge.month}</span>
+        <span style={{ fontSize: 17, fontWeight: 400, color: completed ? PALETTE.success : (overdue ? PALETTE.danger : PALETTE.accent), lineHeight: 1.1, fontFamily: TYPOGRAPHY.display }}>{dateBadge.day}</span>
+      </div>
+      <div style={{ minWidth: 0, overflow: 'hidden' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
+          <span style={{
+            fontSize: 14, fontWeight: 400, color: PALETTE.textPrimary,
+            fontFamily: TYPOGRAPHY.display, fontStyle: 'italic',
+            textDecoration: completed ? 'line-through' : 'none', opacity: completed ? 0.5 : 1,
+            whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+          }}>{item.title}</span>
+          <span style={{
+            fontSize: 9, fontWeight: 600, padding: '1px 7px', borderRadius: 20,
+            background: priorityStyle.bg, color: priorityStyle.color,
+            textTransform: 'uppercase', letterSpacing: '0.06em', flexShrink: 0,
+          }}>{priorityStyle.label}</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 11, color: PALETTE.textTertiary }}>
+          <span style={{
+            fontSize: 9, fontWeight: 600, padding: '1px 7px', borderRadius: 20,
+            background: typeStyle.bg, color: typeStyle.color,
+            textTransform: 'uppercase', letterSpacing: '0.05em',
+          }}>{TYPE_LABELS[item.type]}</span>
+          <span style={{ color: PALETTE.border }}>·</span>
+          <span>{item.subject}</span>
+          <span style={{ color: PALETTE.border }}>·</span>
+          <span style={{ color: overdue ? PALETTE.danger : PALETTE.textTertiary, fontWeight: overdue ? 500 : 400 }}>
+            {window.Lael.daysUntil(item.dueDate)}
+          </span>
+        </div>
+      </div>
+      <span style={{
+        fontSize: 10.5, fontWeight: 500, padding: '3px 10px', borderRadius: 20,
+        background: statusStyle.bg, color: statusStyle.color,
+        border: `1px solid ${statusStyle.border}`, whiteSpace: 'nowrap',
+      }}>{statusStyle.label}</span>
+      <div className="row-edit" style={{ display: 'flex', gap: 4 }}>
+        <button title="Edit" style={{ width: 28, height: 28, borderRadius: 6, border: `1px solid ${PALETTE.border}`, background: PALETTE.surface, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+            <path d="M1 9.5l1-3.5 6.5-6.5 2.5 2.5L4.5 8.5L1 9.5z" stroke={PALETTE.textSecondary} strokeWidth="1.2" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <button title="More" style={{ width: 28, height: 28, borderRadius: 6, border: `1px solid ${PALETTE.border}`, background: PALETTE.surface, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <svg width="12" height="12" viewBox="0 0 16 16" fill={PALETTE.textTertiary}><circle cx="3" cy="8" r="1.3"/><circle cx="8" cy="8" r="1.3"/><circle cx="13" cy="8" r="1.3"/></svg>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function AssessmentCard({ item }) {
+  const dateBadge = window.Lael.formatDateBadge(item.dueDate);
+  const overdue = window.Lael.isOverdue(item);
+  const completed = item.status === 'completed';
+  const typeStyle = TYPE_COLORS[item.type];
+  const priorityStyle = PRIORITY_CONFIG[item.priority];
+
+  return (
+    <div className="row-hover" style={{
+      background: PALETTE.surface, border: `1px solid ${PALETTE.borderLight}`,
+      borderRadius: 10, padding: 14, cursor: 'pointer',
+      opacity: completed ? 0.6 : 1, position: 'relative', overflow: 'hidden',
+      display: 'flex', flexDirection: 'column', gap: 10,
+    }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: priorityStyle.color }} />
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+        <div style={{
+          width: 40, height: 40, borderRadius: 9,
+          background: completed ? PALETTE.successLight : (overdue ? PALETTE.dangerLight : PALETTE.accentLight),
+          border: `1px solid ${completed ? PALETTE.accentBorder : (overdue ? PALETTE.dangerBorder : PALETTE.accentBorder)}`,
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <span style={{ fontSize: 8, fontWeight: 700, color: completed ? PALETTE.success : (overdue ? PALETTE.danger : PALETTE.accent), textTransform: 'uppercase', letterSpacing: '0.08em' }}>{dateBadge.month}</span>
+          <span style={{ fontSize: 17, fontWeight: 400, color: completed ? PALETTE.success : (overdue ? PALETTE.danger : PALETTE.accent), fontFamily: TYPOGRAPHY.display, lineHeight: 1.1 }}>{dateBadge.day}</span>
+        </div>
+        <span style={{
+          fontSize: 9, fontWeight: 600, padding: '2px 7px', borderRadius: 20,
+          background: priorityStyle.bg, color: priorityStyle.color,
+          textTransform: 'uppercase', letterSpacing: '0.06em',
+        }}>{priorityStyle.label}</span>
+      </div>
+      <h3 style={{
+        fontFamily: TYPOGRAPHY.display, fontSize: 15, fontWeight: 400,
+        color: PALETTE.textPrimary, fontStyle: 'italic', letterSpacing: '-0.01em',
+        textDecoration: completed ? 'line-through' : 'none', opacity: completed ? 0.6 : 1,
+        lineHeight: 1.3, margin: 0,
+      }}>{item.title}</h3>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: PALETTE.textTertiary }}>
+        <span style={{
+          fontSize: 9, fontWeight: 600, padding: '1px 7px', borderRadius: 20,
+          background: typeStyle.bg, color: typeStyle.color,
+          textTransform: 'uppercase', letterSpacing: '0.05em',
+        }}>{TYPE_LABELS[item.type]}</span>
+        <span style={{ color: overdue ? PALETTE.danger : PALETTE.textTertiary, fontWeight: overdue ? 500 : 400 }}>
+          {window.Lael.daysUntil(item.dueDate)}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function KanbanCard({ item }) {
+  const typeStyle = TYPE_COLORS[item.type];
+  const priorityStyle = PRIORITY_CONFIG[item.priority];
+  return (
+    <div className="row-hover" style={{
+      background: PALETTE.surface, border: `1px solid ${PALETTE.borderLight}`,
+      borderRadius: 8, padding: '10px 12px', cursor: 'pointer', marginBottom: 6,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 5 }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: priorityStyle.color, flexShrink: 0 }} />
+        <span style={{ fontSize: 9, fontWeight: 600, color: typeStyle.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          {TYPE_LABELS[item.type]}
+        </span>
+      </div>
+      <h4 style={{
+        fontFamily: TYPOGRAPHY.display, fontSize: 13, fontWeight: 400,
+        color: PALETTE.textPrimary, fontStyle: 'italic', lineHeight: 1.3, margin: 0,
+      }}>{item.title}</h4>
+      <div style={{ fontSize: 10.5, color: PALETTE.textTertiary, marginTop: 4 }}>
+        {item.subject} · {window.Lael.daysUntil(item.dueDate)}
+      </div>
+    </div>
+  );
+}
+
+function Assessments() {
+  const [view, setView] = React.useState('list');
+  const [filterType, setFilterType] = React.useState('all');
+  const [filterStatus, setFilterStatus] = React.useState('all');
+  const [search, setSearch] = React.useState('');
+  const [sortBy, setSortBy] = React.useState('due');
+  const [addOpen, setAddOpen] = React.useState(false);
+
+  const filterBarRef = React.useRef(null);
+  React.useEffect(() => {
+    const onScroll = () => {
+      if (filterBarRef.current) {
+        filterBarRef.current.classList.toggle('scrolled', window.scrollY > 64);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  let filtered = ASSESSMENTS.filter(item => {
+    if (filterType !== 'all' && item.type !== filterType) return false;
+    if (filterStatus !== 'all') {
+      if (filterStatus === 'overdue' && !window.Lael.isOverdue(item)) return false;
+      if (filterStatus !== 'overdue' && item.status !== filterStatus) return false;
+    }
+    if (search && !item.title.toLowerCase().includes(search.toLowerCase()) && !item.subject.toLowerCase().includes(search.toLowerCase())) return false;
+    return true;
+  });
+
+  if (sortBy === 'due') {
+    filtered = [...filtered].sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+  } else if (sortBy === 'priority') {
+    const order = { urgent: 0, high: 1, medium: 2, low: 3 };
+    filtered = [...filtered].sort((a, b) => order[a.priority] - order[b.priority]);
+  } else if (sortBy === 'title') {
+    filtered = [...filtered].sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  const typeCounts = {
+    all: ASSESSMENTS.length,
+    exam: ASSESSMENTS.filter(a => a.type === 'exam').length,
+    quiz: ASSESSMENTS.filter(a => a.type === 'quiz').length,
+    assignment: ASSESSMENTS.filter(a => a.type === 'assignment').length,
+    project: ASSESSMENTS.filter(a => a.type === 'project').length,
+  };
+
+  return (
+    <div>
+      <Navbar activePage="assessments" onAddClick={() => setAddOpen(true)} />
+
+      <div style={{ maxWidth: 1500, margin: '0 auto', padding: '18px 32px 60px' }}>
+
+        {/* Trimmed header */}
+        <PageHeader
+          title={`${filtered.length} items`}
+          subtitle={`of ${ASSESSMENTS.length} total`}
+          actions={[
+            <select key="sort" value={sortBy} onChange={(e) => setSortBy(e.target.value)} style={{
+              padding: '7px 10px', borderRadius: 8, border: `1px solid ${PALETTE.border}`,
+              background: PALETTE.surface, color: PALETTE.textPrimary,
+              fontSize: 12, cursor: 'pointer', outline: 'none', fontFamily: TYPOGRAPHY.body,
+            }}>
+              <option value="due">Sort: Due Date</option>
+              <option value="priority">Sort: Priority</option>
+              <option value="title">Sort: A–Z</option>
+            </select>,
+            <div key="vt" style={{
+              display: 'flex', alignItems: 'center', gap: 2,
+              padding: 3, borderRadius: 8, background: PALETTE.surface,
+              border: `1px solid ${PALETTE.border}`,
+            }}>
+              {[
+                { key: 'list', label: 'List' },
+                { key: 'grid', label: 'Grid' },
+                { key: 'kanban', label: 'Kanban' },
+              ].map(v => (
+                <button key={v.key} onClick={() => setView(v.key)} style={{
+                  padding: '5px 12px', borderRadius: 6, border: 'none', cursor: 'pointer',
+                  fontFamily: TYPOGRAPHY.body, fontSize: 12, fontWeight: 500,
+                  color: view === v.key ? PALETTE.accent : PALETTE.textSecondary,
+                  background: view === v.key ? PALETTE.accentLight : 'transparent',
+                  transition: 'all 0.15s ease',
+                }}>{v.label}</button>
+              ))}
+            </div>,
+          ]}
+        />
+
+        {/* Sticky filter bar */}
+        <div ref={filterBarRef} className="filter-bar-sticky">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+            <div style={{ position: 'relative', flex: '1 1 320px', minWidth: 240, maxWidth: 480 }}>
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style={{
+                position: 'absolute', left: 11, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none',
+              }}>
+                <circle cx="6" cy="6" r="4.5" stroke={PALETTE.textTertiary} strokeWidth="1.4" />
+                <path d="M9.5 9.5L13 13" stroke={PALETTE.textTertiary} strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+              <input type="text" placeholder="Search by title or subject..."
+                value={search} onChange={(e) => setSearch(e.target.value)}
+                style={{
+                  width: '100%', padding: '7px 12px 7px 32px', borderRadius: 8,
+                  border: `1px solid ${PALETTE.border}`, background: PALETTE.surface,
+                  color: PALETTE.textPrimary, fontSize: 12.5, outline: 'none', fontFamily: TYPOGRAPHY.body,
+                }}
+              />
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+              <span style={{ fontSize: 10, color: PALETTE.textTertiary, textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginRight: 2 }}>Type</span>
+              {[
+                { key: 'all', label: 'All' },
+                { key: 'exam', label: 'Exams' },
+                { key: 'quiz', label: 'Quizzes' },
+                { key: 'assignment', label: 'Assignments' },
+                { key: 'project', label: 'Projects' },
+              ].map(f => (
+                <FilterChip key={f.key} active={filterType === f.key} onClick={() => setFilterType(f.key)} count={typeCounts[f.key]}>
+                  {f.label}
+                </FilterChip>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+              <span style={{ fontSize: 10, color: PALETTE.textTertiary, textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600, marginRight: 2 }}>Status</span>
+              {[
+                { key: 'all', label: 'All' },
+                { key: 'pending', label: 'Pending' },
+                { key: 'in_progress', label: 'In Progress' },
+                { key: 'overdue', label: 'Overdue' },
+                { key: 'completed', label: 'Completed' },
+              ].map(f => (
+                <FilterChip key={f.key} active={filterStatus === f.key} onClick={() => setFilterStatus(f.key)}>
+                  {f.label}
+                </FilterChip>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {filtered.length === 0 ? (
+          <div style={{
+            background: PALETTE.surface, borderRadius: 12, border: `1.5px dashed ${PALETTE.border}`,
+            padding: '60px 32px', textAlign: 'center',
+          }}>
+            <div style={{ fontFamily: TYPOGRAPHY.display, fontSize: 36, color: PALETTE.border, fontStyle: 'italic', marginBottom: 8 }}>○</div>
+            <h3 style={{ fontFamily: TYPOGRAPHY.display, fontSize: 18, color: PALETTE.textPrimary, fontStyle: 'italic', marginBottom: 6 }}>No assessments match</h3>
+            <p style={{ fontSize: 13, color: PALETTE.textSecondary }}>Try adjusting your filters or search to find what you're looking for.</p>
+          </div>
+        ) : view === 'list' ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {filtered.map(item => <AssessmentRow key={item.id} item={item} />)}
+          </div>
+        ) : view === 'grid' ? (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 12 }}>
+            {filtered.map(item => <AssessmentCard key={item.id} item={item} />)}
+          </div>
+        ) : (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+            {[
+              { key: 'pending', label: 'Pending', color: PALETTE.textSecondary },
+              { key: 'in_progress', label: 'In Progress', color: PALETTE.info },
+              { key: 'overdue', label: 'Overdue', color: PALETTE.danger },
+              { key: 'completed', label: 'Completed', color: PALETTE.success },
+            ].map(col => {
+              const items = filtered.filter(item => {
+                if (col.key === 'overdue') return window.Lael.isOverdue(item) && item.status !== 'completed';
+                return item.status === col.key;
+              });
+              return (
+                <div key={col.key} style={{
+                  background: PALETTE.surface, border: `1px solid ${PALETTE.border}`,
+                  borderRadius: 12, padding: 14, minHeight: 200,
+                }}>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    marginBottom: 12, paddingBottom: 10, borderBottom: `1px solid ${PALETTE.borderLight}`,
+                  }}>
+                    <h3 style={{
+                      fontFamily: TYPOGRAPHY.display, fontSize: 13, fontWeight: 500,
+                      color: PALETTE.textPrimary, fontStyle: 'italic', letterSpacing: '-0.01em',
+                      display: 'flex', alignItems: 'center', gap: 6,
+                    }}>
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: col.color }} />
+                      {col.label}
+                    </h3>
+                    <span style={{
+                      fontSize: 10, color: PALETTE.textTertiary, background: PALETTE.surfaceAlt,
+                      padding: '1px 7px', borderRadius: 10, fontWeight: 500,
+                    }}>{items.length}</span>
+                  </div>
+                  <div>
+                    {items.length === 0 ? (
+                      <div style={{
+                        padding: '20px 10px', textAlign: 'center',
+                        fontSize: 11, color: PALETTE.textTertiary, fontStyle: 'italic',
+                        fontFamily: TYPOGRAPHY.display,
+                      }}>Nothing here</div>
+                    ) : items.map(item => <KanbanCard key={item.id} item={item} />)}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <Modal
+        open={addOpen}
+        onClose={() => setAddOpen(false)}
+        title="Add Assessment"
+        maxWidth={520}
+        footer={[
+          <button key="cancel" onClick={() => setAddOpen(false)} style={{
+            fontFamily: TYPOGRAPHY.body, fontSize: 12.5, fontWeight: 500,
+            color: PALETTE.textSecondary, background: 'transparent', border: 'none',
+            padding: '8px 14px', borderRadius: 7, cursor: 'pointer',
+          }}>Cancel</button>,
+          <button key="save" type="submit" form="add-assessment-form" style={{
+            fontFamily: TYPOGRAPHY.body, fontSize: 12.5, fontWeight: 500,
+            color: '#fff', background: PALETTE.accent, border: 'none',
+            padding: '8px 16px', borderRadius: 7, cursor: 'pointer',
+            boxShadow: '0 2px 6px rgba(22,101,52,0.25)',
+          }}>Save Assessment</button>,
+        ]}
+      >
+        <AddAssessmentForm
+          onCancel={() => setAddOpen(false)}
+          onSaved={() => setAddOpen(false)}
+        />
+      </Modal>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Assessments />);
+</script>
+</body>
+</html>

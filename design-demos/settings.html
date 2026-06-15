@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lael — Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="shared.js"></script>
+<style id="global-styles"></style>
+<style>
+  .toggle {
+    position: relative;
+    width: 32px; height: 18px;
+    border-radius: 9px;
+    background: #E2DAD0;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+  }
+  .toggle.on { background: #166534; }
+  .toggle.on::after { transform: translateX(14px); }
+  .setting-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 9px 0;
+    border-bottom: 1px solid #EDE6DC;
+  }
+  .setting-row:last-child { border-bottom: none; }
+  .section-card {
+    background: #FFFEFA;
+    border: 1px solid #E2DAD0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(28,25,23,0.05);
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 12px 16px 8px;
+    border-bottom: 1px solid #EDE6DC;
+  }
+  .section-body { padding: 4px 16px 10px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  document.getElementById('global-styles').textContent = window.Lael.GLOBAL_STYLES;
+</script>
+<script type="text/babel">
+const {
+  PALETTE, TYPOGRAPHY, Navbar, PageHeader, USER_NAME, USER_EMAIL
+} = window.Lael;
+
+function Toggle({ on, onClick }) {
+  return (
+    <div className={`toggle ${on ? 'on' : ''}`} onClick={onClick} role="switch" aria-checked={on} />
+  );
+}
+
+function Section({ title, children }) {
+  return (
+    <div className="section-card">
+      <div className="section-header">
+        <h3 style={{
+          fontFamily: TYPOGRAPHY.display, fontSize: 14, fontWeight: 500,
+          color: PALETTE.textPrimary, fontStyle: 'italic', margin: 0,
+          letterSpacing: '-0.005em',
+        }}>{title}</h3>
+      </div>
+      <div className="section-body">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function SegmentedControl({ value, onChange, options }) {
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 1,
+      padding: 2, borderRadius: 7, background: PALETTE.bgWarm,
+      border: `1px solid ${PALETTE.border}`,
+    }}>
+      {options.map(o => (
+        <button key={o.value} onClick={() => onChange(o.value)} style={{
+          padding: '4px 11px', borderRadius: 5, border: 'none', cursor: 'pointer',
+          fontFamily: TYPOGRAPHY.body, fontSize: 11, fontWeight: 500,
+          color: value === o.value ? PALETTE.accent : PALETTE.textSecondary,
+          background: value === o.value ? PALETTE.surface : 'transparent',
+          transition: 'all 0.15s ease',
+        }}>{o.label}</button>
+      ))}
+    </div>
+  );
+}
+
+function Settings() {
+  const [name, setName] = React.useState(USER_NAME);
+  const [email, setEmail] = React.useState(USER_EMAIL);
+  const [theme, setTheme] = React.useState('light');
+  const [defaultView, setDefaultView] = React.useState('list');
+  const [notifEmail, setNotifEmail] = React.useState(true);
+  const [notifReminder, setNotifReminder] = React.useState('1day');
+  const [weekStart, setWeekStart] = React.useState('sunday');
+
+  const inputStyle = {
+    padding: '5px 9px', borderRadius: 6,
+    border: `1px solid ${PALETTE.border}`, background: PALETTE.surface,
+    color: PALETTE.textPrimary, fontSize: 12, outline: 'none', fontFamily: TYPOGRAPHY.body,
+    transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
+  };
+
+  return (
+    <div>
+      <Navbar activePage="settings" />
+
+      <div style={{ maxWidth: 1500, margin: '0 auto', padding: '18px 32px 60px' }}>
+
+        {/* Compact header — title only, no subtitle */}
+        <PageHeader
+          title="Preferences"
+          subtitle="Customize Lael to fit how you work"
+        />
+
+        {/* Two-column grid of compact sections */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+
+          {/* Profile */}
+          <Section title="Profile">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '10px 0' }}>
+              <div style={{
+                width: 48, height: 48, borderRadius: '50%', background: '#D1FAE5',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                border: `1px solid ${PALETTE.accentBorder}`, flexShrink: 0,
+                fontFamily: TYPOGRAPHY.display, fontSize: 19, fontWeight: 600,
+                color: PALETTE.accent, fontStyle: 'italic',
+              }}>{name.charAt(0).toUpperCase()}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 13, fontWeight: 500, color: PALETTE.textPrimary }}>{name}</div>
+                <div style={{ fontSize: 11, color: PALETTE.textTertiary }}>{email}</div>
+              </div>
+              <button style={{
+                fontSize: 11, color: PALETTE.accent, background: 'none', border: 'none',
+                cursor: 'pointer', fontWeight: 500, padding: 0,
+              }}>Edit</button>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Name</div>
+              <input
+                type="text" value={name} onChange={(e) => setName(e.target.value)}
+                style={{ ...inputStyle, width: 180, textAlign: 'right' }}
+              />
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Email</div>
+              <input
+                type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+                style={{ ...inputStyle, width: 180, textAlign: 'right' }}
+              />
+            </div>
+          </Section>
+
+          {/* Appearance */}
+          <Section title="Appearance">
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Theme</div>
+              <SegmentedControl
+                value={theme} onChange={setTheme}
+                options={[
+                  { value: 'light', label: 'Light' },
+                  { value: 'dark', label: 'Dark' },
+                  { value: 'auto', label: 'Auto' },
+                ]}
+              />
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Default view</div>
+              <select value={defaultView} onChange={(e) => setDefaultView(e.target.value)} style={{
+                ...inputStyle, width: 130, cursor: 'pointer',
+              }}>
+                <option value="list">List</option>
+                <option value="grid">Grid</option>
+                <option value="kanban">Kanban</option>
+              </select>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Density</div>
+              <SegmentedControl
+                value="comfortable" onChange={() => {}}
+                options={[
+                  { value: 'compact', label: 'Compact' },
+                  { value: 'comfortable', label: 'Comfy' },
+                ]}
+              />
+            </div>
+          </Section>
+
+          {/* Calendar */}
+          <Section title="Calendar">
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Week starts on</div>
+              <SegmentedControl
+                value={weekStart} onChange={setWeekStart}
+                options={[
+                  { value: 'sunday', label: 'Sunday' },
+                  { value: 'monday', label: 'Monday' },
+                ]}
+              />
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Show week numbers</div>
+              <Toggle on={false} onClick={() => {}} />
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Time zone</div>
+              <select style={{ ...inputStyle, width: 180, cursor: 'pointer' }}>
+                <option>Auto-detect (UTC+1)</option>
+                <option>America/New_York</option>
+                <option>America/Los_Angeles</option>
+                <option>Europe/London</option>
+                <option>Asia/Tokyo</option>
+              </select>
+            </div>
+          </Section>
+
+          {/* Notifications */}
+          <Section title="Notifications">
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Email reminders</div>
+              <Toggle on={notifEmail} onClick={() => setNotifEmail(!notifEmail)} />
+            </div>
+            <div className="setting-row" style={{ opacity: notifEmail ? 1 : 0.5, pointerEvents: notifEmail ? 'auto' : 'none' }}>
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Reminder timing</div>
+              <select value={notifReminder} onChange={(e) => setNotifReminder(e.target.value)} style={{
+                ...inputStyle, width: 150, cursor: 'pointer',
+              }}>
+                <option value="1hour">1 hour before</option>
+                <option value="3hours">3 hours before</option>
+                <option value="1day">1 day before</option>
+                <option value="3days">3 days before</option>
+                <option value="1week">1 week before</option>
+              </select>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Daily digest</div>
+              <Toggle on={false} onClick={() => {}} />
+            </div>
+          </Section>
+
+          {/* Data */}
+          <Section title="Your data">
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Export</div>
+              <div style={{ display: 'flex', gap: 6 }}>
+                <button style={{
+                  padding: '5px 11px', borderRadius: 6, border: `1px solid ${PALETTE.border}`,
+                  background: PALETTE.surface, fontSize: 11, fontWeight: 500,
+                  color: PALETTE.textPrimary, cursor: 'pointer', fontFamily: TYPOGRAPHY.body,
+                }}>JSON</button>
+                <button style={{
+                  padding: '5px 11px', borderRadius: 6, border: `1px solid ${PALETTE.border}`,
+                  background: PALETTE.surface, fontSize: 11, fontWeight: 500,
+                  color: PALETTE.textPrimary, cursor: 'pointer', fontFamily: TYPOGRAPHY.body,
+                }}>CSV</button>
+              </div>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Import from backup</div>
+              <button style={{
+                padding: '5px 12px', borderRadius: 6, border: `1px solid ${PALETTE.border}`,
+                background: PALETTE.surface, fontSize: 11, fontWeight: 500,
+                color: PALETTE.textPrimary, cursor: 'pointer', fontFamily: TYPOGRAPHY.body,
+              }}>Choose file…</button>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Auto-backup</div>
+              <Toggle on={true} onClick={() => {}} />
+            </div>
+          </Section>
+
+          {/* Account */}
+          <Section title="Account">
+            <div className="setting-row">
+              <div>
+                <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Signed in as</div>
+                <div style={{ fontSize: 10.5, color: PALETTE.textTertiary, marginTop: 1 }}>{email}</div>
+              </div>
+              <button style={{
+                padding: '5px 12px', borderRadius: 6, border: `1px solid ${PALETTE.dangerBorder}`,
+                background: PALETTE.dangerLight, color: PALETTE.danger,
+                fontSize: 11, fontWeight: 500, cursor: 'pointer', fontFamily: TYPOGRAPHY.body,
+              }}>Sign out</button>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Two-factor auth</div>
+              <button style={{
+                padding: '5px 12px', borderRadius: 6, border: `1px solid ${PALETTE.border}`,
+                background: PALETTE.surface, fontSize: 11, fontWeight: 500,
+                color: PALETTE.textPrimary, cursor: 'pointer', fontFamily: TYPOGRAPHY.body,
+              }}>Enable</button>
+            </div>
+            <div className="setting-row">
+              <div style={{ fontSize: 12.5, color: PALETTE.textPrimary }}>Delete account</div>
+              <button style={{
+                padding: '5px 12px', borderRadius: 6, border: 'none',
+                background: 'transparent', fontSize: 11, fontWeight: 500,
+                color: PALETTE.danger, cursor: 'pointer', fontFamily: TYPOGRAPHY.body,
+              }}>Delete…</button>
+            </div>
+          </Section>
+
+        </div>
+
+        {/* Footer */}
+        <div style={{ textAlign: 'center', paddingTop: 24, marginTop: 16 }}>
+          <p style={{ fontSize: 11, color: PALETTE.textTertiary }}>
+            Lael · v0.1.0 · <a href="#" style={{ color: PALETTE.textTertiary, textDecoration: 'underline' }}>Privacy</a> · <a href="#" style={{ color: PALETTE.textTertiary, textDecoration: 'underline' }}>Terms</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Settings />);
+</script>
+</body>
+</html>
