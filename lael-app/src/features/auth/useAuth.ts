@@ -19,10 +19,12 @@ import { authClient } from '@/lib/auth-client';
  *   - `user` populated             → render protected UI
  */
 export function useAuth() {
-  const { data: session, isPending: isSessionPending } = authClient.useSession();
+  const { data: session, isPending: isSessionPending, error: sessionError } = authClient.useSession();
   const user = useQuery(api.auth.getCurrentUser);
 
-  const isLoading = isSessionPending || user === undefined;
+  // If the session fetch errored (e.g. CORS / missing env var), treat as
+  // not loading so the app doesn't hang on the spinner indefinitely.
+  const isLoading = !sessionError && (isSessionPending || user === undefined);
   const isAuthenticated = !!session && !!user;
 
   return {

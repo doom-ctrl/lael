@@ -15,4 +15,4 @@ if (!url) {
   );
 }
 
-export const convex = new ConvexReactClient(url, { expectAuth: true });
+export const convex = new ConvexReactClient(url);
