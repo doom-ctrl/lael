@@ -27,6 +27,12 @@ import authConfig from "./auth.config";
 
 const siteUrl = process.env.SITE_URL!;
 
+// Additional production origins — add new Vercel/deployment URLs here
+const additionalOrigins = [
+  "https://lael-one.vercel.app",
+  "https://lael-ten.vercel.app",
+];
+
 export const authComponent = createClient<DataModel>(components.betterAuth);
 
 /**
@@ -44,6 +50,7 @@ export const authComponent = createClient<DataModel>(components.betterAuth);
 const trustedOrigins = (request?: Request): string[] => {
   const origins = new Set<string>();
   if (siteUrl) origins.add(siteUrl);
+  additionalOrigins.forEach((o) => origins.add(o));
   if (request) {
     const callerOrigin = request.headers.get("origin");
     if (
