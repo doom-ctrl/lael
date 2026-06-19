@@ -36,7 +36,6 @@ export function daysUntil(
 ): string {
   // Parse as local date to avoid UTC timezone off-by-one errors
   const [year, month, day] = dueDateStr.split('-').map(Number);
-  const due = new Date(year, month - 1, day);
 
   // Normalize both dates to local midnight for accurate day difference
   const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
