@@ -21,9 +21,8 @@ export function formatDateBadge(
   dueDateStr: string,
   _today: Date = DEMO_TODAY,
 ): { month: string; day: number } {
-  // Parse as local date to avoid UTC timezone off-by-one errors
-  const [year, month, day] = dueDateStr.split('-').map(Number);
-  const d = new Date(year, month - 1, day);
+  // Use T00:00:00 to force local time parsing (not UTC)
+  const d = new Date(dueDateStr + 'T00:00:00');
   const monthStr = d.toLocaleString('en', { month: 'short' }).toUpperCase();
   const dayNum = d.getDate();
   return { month: monthStr, day: dayNum };
@@ -34,20 +33,24 @@ export function daysUntil(
   dueDateStr: string,
   today: Date = DEMO_TODAY,
 ): string {
-  // Parse as local date to avoid UTC timezone off-by-one errors
-  const [year, month, day] = dueDateStr.split('-').map(Number);
+  // Use T00:00:00 to force local time parsing (not UTC)
+  const due = new Date(dueDateStr + 'T00:00:00');
+  const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-  // Normalize both dates to local midnight for accurate day difference
-  const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const dueMidnight = new Date(year, month - 1, day);
+  // Get date strings (YYYY-MM-DD) for clean comparison
+  const dueDateStr2 = due.toISOString().slice(0, 10);
+  const todayDateStr2 = todayDate.toISOString().slice(0, 10);
 
-  const diff = Math.round(
-    (dueMidnight.getTime() - todayMidnight.getTime()) / (1000 * 60 * 60 * 24),
-  );
-  if (diff === 0) return 'Today';
+  // Compare date strings directly (lexicographic works for ISO dates)
+  if (dueDateStr2 < todayDateStr2) {
+    const diff = Math.ceil((todayDate.getTime() - due.getTime()) / (1000 * 60 * 60 * 24));
+    if (diff === 1) return 'Yesterday';
+    return `${diff} days ago`;
+  }
+  if (dueDateStr2 === todayDateStr2) return 'Today';
+
+  const diff = Math.ceil((due.getTime() - todayDate.getTime()) / (1000 * 60 * 60 * 24));
   if (diff === 1) return 'Tomorrow';
-  if (diff === -1) return 'Yesterday';
-  if (diff < 0) return `${Math.abs(diff)} days ago`;
   if (diff < 7) return `In ${diff} days`;
   if (diff < 14) return 'In 1 week';
   return `In ${Math.floor(diff / 7)} weeks`;
@@ -60,11 +63,12 @@ export function isOverdue(
 ): boolean {
   if (status === 'overdue') return true;
   if (status === 'completed') return false;
-  // Parse as local date to avoid UTC timezone off-by-one errors
-  const [year, month, day] = dueDateStr.split('-').map(Number);
-  const dueMidnight = new Date(year, month - 1, day);
-  const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  return dueMidnight < todayMidnight;
+  // Use T00:00:00 to force local time parsing (not UTC)
+  const due = new Date(dueDateStr + 'T00:00:00');
+  const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const dueDateStr2 = due.toISOString().slice(0, 10);
+  const todayDateStr2 = todayDate.toISOString().slice(0, 10);
+  return dueDateStr2 < todayDateStr2;
 }
 
 /** Long, friendly date for headers: "Sunday, June 14". */

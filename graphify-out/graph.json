@@ -1,0 +1,1120 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "utils.ts",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_utils",
+      "community": 1,
+      "norm_label": "utils.ts"
+    },
+    {
+      "label": "cn()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "lib_utils_cn",
+      "community": 1,
+      "norm_label": "cn()"
+    },
+    {
+      "label": "DEMO_TODAY",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "lib_utils_demo_today",
+      "community": 1,
+      "norm_label": "demo_today"
+    },
+    {
+      "label": "formatDateBadge()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "lib_utils_formatdatebadge",
+      "community": 1,
+      "norm_label": "formatdatebadge()"
+    },
+    {
+      "label": "daysUntil()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "lib_utils_daysuntil",
+      "community": 1,
+      "norm_label": "daysuntil()"
+    },
+    {
+      "label": "isOverdue()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "lib_utils_isoverdue",
+      "community": 1,
+      "norm_label": "isoverdue()"
+    },
+    {
+      "label": "formatLongDate()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "lib_utils_formatlongdate",
+      "community": 1,
+      "norm_label": "formatlongdate()"
+    },
+    {
+      "label": "getGreeting()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "lib_utils_getgreeting",
+      "community": 1,
+      "norm_label": "getgreeting()"
+    },
+    {
+      "label": "getInitials()",
+      "file_type": "code",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "lib_utils_getinitials",
+      "community": 1,
+      "norm_label": "getinitials()"
+    },
+    {
+      "label": "assessments.ts",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "assessments.ts",
+      "id": "convex_assessments"
+    },
+    {
+      "label": "typeV",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "typev",
+      "id": "convex_assessments_typev"
+    },
+    {
+      "label": "priorityV",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "priorityv",
+      "id": "convex_assessments_priorityv"
+    },
+    {
+      "label": "statusV",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "statusv",
+      "id": "convex_assessments_statusv"
+    },
+    {
+      "label": "requireUser()",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L56",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "requireuser()",
+      "id": "convex_assessments_requireuser"
+    },
+    {
+      "label": "dateStrToTimestamp()",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L66",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "datestrtotimestamp()",
+      "id": "convex_assessments_datestrtotimestamp"
+    },
+    {
+      "label": "timestampToDateStr()",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L73",
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "timestamptodatestr()",
+      "id": "convex_assessments_timestamptodatestr"
+    },
+    {
+      "label": "toClient()",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L79",
+      "_origin": "ast",
+      "community": 5,
+      "norm_label": "toclient()",
+      "id": "convex_assessments_toclient"
+    },
+    {
+      "label": "list",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L98",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "list",
+      "id": "convex_assessments_list"
+    },
+    {
+      "label": "listByMonth",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L117",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "listbymonth",
+      "id": "convex_assessments_listbymonth"
+    },
+    {
+      "label": "get",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L136",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "get",
+      "id": "convex_assessments_get"
+    },
+    {
+      "label": "writeFields",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L148",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "writefields",
+      "id": "convex_assessments_writefields"
+    },
+    {
+      "label": "create",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L159",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "create",
+      "id": "convex_assessments_create"
+    },
+    {
+      "label": "update",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L181",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "update",
+      "id": "convex_assessments_update"
+    },
+    {
+      "label": "markComplete",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L219",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "markcomplete",
+      "id": "convex_assessments_markcomplete"
+    },
+    {
+      "label": "remove",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L240",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "remove",
+      "id": "convex_assessments_remove"
+    },
+    {
+      "label": "counts",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L254",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "counts",
+      "id": "convex_assessments_counts"
+    },
+    {
+      "label": "AssessmentId",
+      "file_type": "code",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L273",
+      "_origin": "ast",
+      "community": 0,
+      "norm_label": "assessmentid",
+      "id": "convex_assessments_assessmentid"
+    },
+    {
+      "label": "auth.ts",
+      "file_type": "code",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "auth.ts",
+      "id": "convex_auth"
+    },
+    {
+      "label": "additionalOrigins",
+      "file_type": "code",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L31",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "additionalorigins",
+      "id": "convex_auth_additionalorigins"
+    },
+    {
+      "label": "authComponent",
+      "file_type": "code",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L36",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "authcomponent",
+      "id": "convex_auth_authcomponent"
+    },
+    {
+      "label": "trustedOrigins()",
+      "file_type": "code",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L50",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "trustedorigins()",
+      "id": "convex_auth_trustedorigins"
+    },
+    {
+      "label": "createAuth()",
+      "file_type": "code",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L69",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "createauth()",
+      "id": "convex_auth_createauth"
+    },
+    {
+      "label": "getCurrentUser",
+      "file_type": "code",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L95",
+      "_origin": "ast",
+      "community": 4,
+      "norm_label": "getcurrentuser",
+      "id": "convex_auth_getcurrentuser"
+    },
+    {
+      "label": "AddAssessmentModal.tsx",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "addassessmentmodal.tsx",
+      "id": "modals_addassessmentmodal"
+    },
+    {
+      "label": "AddAssessmentMode",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L34",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "addassessmentmode",
+      "id": "modals_addassessmentmodal_addassessmentmode"
+    },
+    {
+      "label": "AddAssessmentModalProps",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "addassessmentmodalprops",
+      "id": "modals_addassessmentmodal_addassessmentmodalprops"
+    },
+    {
+      "label": "AddAssessmentFormValues",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "addassessmentformvalues",
+      "id": "modals_addassessmentmodal_addassessmentformvalues"
+    },
+    {
+      "label": "todayDateStr()",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L59",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "todaydatestr()",
+      "id": "modals_addassessmentmodal_todaydatestr"
+    },
+    {
+      "label": "itemToFormValues()",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L65",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "itemtoformvalues()",
+      "id": "modals_addassessmentmodal_itemtoformvalues"
+    },
+    {
+      "label": "formSchema",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L95",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "formschema",
+      "id": "modals_addassessmentmodal_formschema"
+    },
+    {
+      "label": "FormErrors",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L133",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "formerrors",
+      "id": "modals_addassessmentmodal_formerrors"
+    },
+    {
+      "label": "validateField()",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L139",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "validatefield()",
+      "id": "modals_addassessmentmodal_validatefield"
+    },
+    {
+      "label": "Field()",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L152",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "field()",
+      "id": "modals_addassessmentmodal_field"
+    },
+    {
+      "label": "AddAssessmentModal()",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L208",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "addassessmentmodal()",
+      "id": "modals_addassessmentmodal_addassessmentmodal"
+    },
+    {
+      "label": "defaults()",
+      "file_type": "code",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L567",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "defaults()",
+      "id": "modals_addassessmentmodal_defaults"
+    },
+    {
+      "label": "useAssessments.ts",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "useassessments.ts",
+      "id": "assessments_useassessments"
+    },
+    {
+      "label": "useAssessments()",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "useassessments()",
+      "id": "assessments_useassessments_useassessments"
+    },
+    {
+      "label": "useAssessmentsByMonth()",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L26",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "useassessmentsbymonth()",
+      "id": "assessments_useassessments_useassessmentsbymonth"
+    },
+    {
+      "label": "useAssessmentCounts()",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L39",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "useassessmentcounts()",
+      "id": "assessments_useassessments_useassessmentcounts"
+    },
+    {
+      "label": "useDashboardData()",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L62",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "usedashboarddata()",
+      "id": "assessments_useassessments_usedashboarddata"
+    },
+    {
+      "label": "priorityRank()",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L113",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "priorityrank()",
+      "id": "assessments_useassessments_priorityrank"
+    },
+    {
+      "label": "useAssessmentMutations()",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L134",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "useassessmentmutations()",
+      "id": "assessments_useassessments_useassessmentmutations"
+    },
+    {
+      "label": "AssessmentId",
+      "file_type": "code",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L210",
+      "_origin": "ast",
+      "community": 3,
+      "norm_label": "assessmentid",
+      "id": "assessments_useassessments_assessmentid"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_daysuntil"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_demo_today"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_formatdatebadge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_formatlongdate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_getgreeting"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_getinitials"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/lib/utils.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "lib_utils",
+      "target": "lib_utils_isoverdue"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L475",
+      "weight": 1.0,
+      "source": "modals_addassessmentmodal_addassessmentmodal",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "modals_addassessmentmodal_field",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L273",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_assessmentid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L254",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_counts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L159",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_create"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_datestrtotimestamp"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_get"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L98",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_list"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L117",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_listbymonth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L219",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_markcomplete"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_priorityv"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L240",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_remove"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_requireuser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_statusv"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_timestamptodatestr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_toclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_typev"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_update"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L148",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_assessments_writefields"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_auth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments",
+      "target": "convex_auth_authcomponent"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/assessments.ts",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_assessments_toclient",
+      "target": "convex_assessments_timestamptodatestr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_auth",
+      "target": "convex_auth_additionalorigins"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_auth",
+      "target": "convex_auth_authcomponent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_auth",
+      "target": "convex_auth_createauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_auth",
+      "target": "convex_auth_getcurrentuser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/convex/auth.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "convex_auth",
+      "target": "convex_auth_trustedorigins"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_addassessmentformvalues"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_addassessmentmodal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_addassessmentmodalprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_addassessmentmode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L567",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_defaults"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_field"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_formerrors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_formschema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_itemtoformvalues"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_todaydatestr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L139",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal",
+      "target": "modals_addassessmentmodal_validatefield"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L572",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modals_addassessmentmodal_defaults",
+      "target": "modals_addassessmentmodal_todaydatestr"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "modals_addassessmentmodal_addassessmentmodal",
+      "target": "assessments_useassessments_useassessmentmutations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L210",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_assessmentid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_priorityrank"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_useassessmentcounts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L134",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_useassessmentmutations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_useassessments"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_useassessmentsbymonth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments",
+      "target": "assessments_useassessments_usedashboarddata"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments_usedashboarddata",
+      "target": "assessments_useassessments_useassessments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/features/assessments/useAssessments.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "assessments_useassessments_usedashboarddata",
+      "target": "assessments_useassessments_useassessmentcounts"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "a9e64f8924c98550a4641d447fcff9710438efdf"
+}

@@ -64,15 +64,14 @@ async function requireUser(ctx: {
 
 /** `YYYY-MM-DD` → Unix ms at local midnight. */
 function dateStrToTimestamp(s: string): number {
-  const [year, month, day] = s.split('-').map(Number);
-  // Use local midnight to match frontend interpretation
-  return new Date(year, month - 1, day, 0, 0, 0, 0).getTime();
+  // Use T00:00:00 to force local time parsing (not UTC)
+  return new Date(s + 'T00:00:00').getTime();
 }
 
 /** Unix ms → `YYYY-MM-DD` (local). */
 function timestampToDateStr(ts: number): string {
-  const d = new Date(ts);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  // Use T00:00:00 to force local time parsing, then extract date part
+  return new Date(ts).toISOString().slice(0, 10);
 }
 
 /** Storage → wire shape. */

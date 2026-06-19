@@ -1,0 +1,712 @@
+{
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\components.json": {
+    "mtime": 1781441587.0668535,
+    "ast_hash": "13ff02ffdf608fdd9e97845ce5b3aa8c",
+    "semantic_hash": "13ff02ffdf608fdd9e97845ce5b3aa8c"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\assessments.ts": {
+    "mtime": 1781532130.3947272,
+    "ast_hash": "0c90097c6d1597a588a1853ff5b9113e",
+    "semantic_hash": "0c90097c6d1597a588a1853ff5b9113e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\auth.config.ts": {
+    "mtime": 1781445215.8647318,
+    "ast_hash": "f77a2a241841f7e0db857fdf295fcef9",
+    "semantic_hash": "f77a2a241841f7e0db857fdf295fcef9"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\auth.ts": {
+    "mtime": 1781570533.5731902,
+    "ast_hash": "e73e2eb71d92c90749609f6f6d3ef2a8",
+    "semantic_hash": "e73e2eb71d92c90749609f6f6d3ef2a8"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\convex.config.ts": {
+    "mtime": 1781445220.6817145,
+    "ast_hash": "046655c8f82037d3453b7375fd0398f5",
+    "semantic_hash": "046655c8f82037d3453b7375fd0398f5"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\http.ts": {
+    "mtime": 1781569785.9629402,
+    "ast_hash": "4afec8da574af90317bf012030e52fc5",
+    "semantic_hash": "4afec8da574af90317bf012030e52fc5"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\schema.ts": {
+    "mtime": 1781519255.2963333,
+    "ast_hash": "119d975f90d5e46db684be129dde5b76",
+    "semantic_hash": "119d975f90d5e46db684be129dde5b76"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\tsconfig.json": {
+    "mtime": 1781445492.8338158,
+    "ast_hash": "38d4031243214adb3441863d5a5405a0",
+    "semantic_hash": "38d4031243214adb3441863d5a5405a0"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\userPreferences.ts": {
+    "mtime": 1781532090.9767933,
+    "ast_hash": "7f499d7557ff3835e1b4e6cfc5911ce2",
+    "semantic_hash": "7f499d7557ff3835e1b4e6cfc5911ce2"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\eslint.config.js": {
+    "mtime": 1779695201.5065265,
+    "ast_hash": "0355276bc79439afe3c53e3a2470ca1e",
+    "semantic_hash": "0355276bc79439afe3c53e3a2470ca1e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\package.json": {
+    "mtime": 1781526190.1792166,
+    "ast_hash": "e6ba05e0eb8e81c0bb99106ca34df6ec",
+    "semantic_hash": "e6ba05e0eb8e81c0bb99106ca34df6ec"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\skills-lock.json": {
+    "mtime": 1781524136.1166022,
+    "ast_hash": "82b6621f61f770fa68e28d67955a6d30",
+    "semantic_hash": "82b6621f61f770fa68e28d67955a6d30"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\App.tsx": {
+    "mtime": 1781527907.427673,
+    "ast_hash": "0ab0eec8e922c7a93fd4af034d60f684",
+    "semantic_hash": "0ab0eec8e922c7a93fd4af034d60f684"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\EmptyState.tsx": {
+    "mtime": 1781441744.301321,
+    "ast_hash": "34df675a0d431007334a752e9f42918a",
+    "semantic_hash": "34df675a0d431007334a752e9f42918a"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\ErrorBoundary.tsx": {
+    "mtime": 1781441763.4031768,
+    "ast_hash": "95f61a1b9605de3651a5bb95971aba72",
+    "semantic_hash": "95f61a1b9605de3651a5bb95971aba72"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\FullPageSpinner.tsx": {
+    "mtime": 1781445297.5872357,
+    "ast_hash": "6c551b9a57ec6d26f46461f5bd276e65",
+    "semantic_hash": "6c551b9a57ec6d26f46461f5bd276e65"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\LoadingState.tsx": {
+    "mtime": 1781441752.780617,
+    "ast_hash": "c44da35a942564a2fadf57cbb7c8151f",
+    "semantic_hash": "c44da35a942564a2fadf57cbb7c8151f"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\SegmentedControl.tsx": {
+    "mtime": 1781443567.9676602,
+    "ast_hash": "bf51c2b272b10d9564b6d239ef1064e3",
+    "semantic_hash": "bf51c2b272b10d9564b6d239ef1064e3"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\SettingsSection.tsx": {
+    "mtime": 1781443507.9739258,
+    "ast_hash": "18168751f2fd57d6eb4b189fad6143fe",
+    "semantic_hash": "18168751f2fd57d6eb4b189fad6143fe"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\SortSelect.tsx": {
+    "mtime": 1781442820.4431803,
+    "ast_hash": "0e760a68d8b4459d47186d4741422550",
+    "semantic_hash": "0e760a68d8b4459d47186d4741422550"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\StatCard.tsx": {
+    "mtime": 1781442371.5396266,
+    "ast_hash": "cb9c37c0e0a4befa5fa7d99faf17e4e5",
+    "semantic_hash": "cb9c37c0e0a4befa5fa7d99faf17e4e5"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\Toggle.tsx": {
+    "mtime": 1781443579.4510772,
+    "ast_hash": "a7b77745ed53d1086ce71175c4489679",
+    "semantic_hash": "a7b77745ed53d1086ce71175c4489679"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\common\\ViewToggle.tsx": {
+    "mtime": 1781519774.8165414,
+    "ast_hash": "fd8fe94922210085d77bb5ee1c535bce",
+    "semantic_hash": "fd8fe94922210085d77bb5ee1c535bce"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\layout\\AuthLayout.tsx": {
+    "mtime": 1781445307.4633312,
+    "ast_hash": "4fa9f95414843e9b02b08eba0a32df39",
+    "semantic_hash": "4fa9f95414843e9b02b08eba0a32df39"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\layout\\Navbar.tsx": {
+    "mtime": 1781526611.429659,
+    "ast_hash": "53c598e7ccbc8f13aae51e7d378a5821",
+    "semantic_hash": "53c598e7ccbc8f13aae51e7d378a5821"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\layout\\PageContainer.tsx": {
+    "mtime": 1781441769.2613153,
+    "ast_hash": "fe3bb298ba40f5a59fcced0d8f61431a",
+    "semantic_hash": "fe3bb298ba40f5a59fcced0d8f61431a"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\layout\\PageHeader.tsx": {
+    "mtime": 1781441776.5968704,
+    "ast_hash": "db8fa8c60ed74bcaa401764d011d9b48",
+    "semantic_hash": "db8fa8c60ed74bcaa401764d011d9b48"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\layout\\PageTransition.tsx": {
+    "mtime": 1781526759.4272513,
+    "ast_hash": "ebc5a2675119534f6815522ea1fbb500",
+    "semantic_hash": "ebc5a2675119534f6815522ea1fbb500"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\modals\\AddAssessmentDialogProvider.tsx": {
+    "mtime": 1781518161.873194,
+    "ast_hash": "4df4bea7c17c8387e513dfd511b7d7a7",
+    "semantic_hash": "4df4bea7c17c8387e513dfd511b7d7a7"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\modals\\AddAssessmentModal.tsx": {
+    "mtime": 1781526539.1069937,
+    "ast_hash": "0c850d3591a87ad3a47029ccd3e1b166",
+    "semantic_hash": "0c850d3591a87ad3a47029ccd3e1b166"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\providers\\CommandPaletteProvider.tsx": {
+    "mtime": 1781526355.263412,
+    "ast_hash": "6de4f2b12d76b19358e3e17f97a97eac",
+    "semantic_hash": "6de4f2b12d76b19358e3e17f97a97eac"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\providers\\ConvexAuthProvider.tsx": {
+    "mtime": 1781445270.0228393,
+    "ast_hash": "cfab9f6368258f8f274b80216ddd965d",
+    "semantic_hash": "cfab9f6368258f8f274b80216ddd965d"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\providers\\GlobalShortcuts.tsx": {
+    "mtime": 1781526419.99129,
+    "ast_hash": "3e5d0305b59f2d684d8a033f30271fa5",
+    "semantic_hash": "3e5d0305b59f2d684d8a033f30271fa5"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\providers\\ThemeProvider.tsx": {
+    "mtime": 1781519396.1302447,
+    "ast_hash": "108fa32f107c9a3f8eb58e6d01764106",
+    "semantic_hash": "108fa32f107c9a3f8eb58e6d01764106"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\providers\\Toaster.tsx": {
+    "mtime": 1781526269.397624,
+    "ast_hash": "d708d4000dbb96ae985de0250353ce3f",
+    "semantic_hash": "d708d4000dbb96ae985de0250353ce3f"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\button.tsx": {
+    "mtime": 1781528350.3954866,
+    "ast_hash": "c0f9f06c3e01c9707fea889162b15a72",
+    "semantic_hash": "c0f9f06c3e01c9707fea889162b15a72"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\card.tsx": {
+    "mtime": 1781441734.6819875,
+    "ast_hash": "010f1db09247d294200a8eef07d9ba08",
+    "semantic_hash": "010f1db09247d294200a8eef07d9ba08"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\command.tsx": {
+    "mtime": 1781526288.3227358,
+    "ast_hash": "722119b80e5f783d52286600d3c6d6b4",
+    "semantic_hash": "722119b80e5f783d52286600d3c6d6b4"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\dialog.tsx": {
+    "mtime": 1781441725.971588,
+    "ast_hash": "39fa38c145c84324f20eb16f5052de38",
+    "semantic_hash": "39fa38c145c84324f20eb16f5052de38"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\input.tsx": {
+    "mtime": 1781441700.6436667,
+    "ast_hash": "de5fe4faa80dc437070eb9a0b3bee7a1",
+    "semantic_hash": "de5fe4faa80dc437070eb9a0b3bee7a1"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\label.tsx": {
+    "mtime": 1781441710.692067,
+    "ast_hash": "30a7a40f43fac2fee0c2dbbd60bd9d66",
+    "semantic_hash": "30a7a40f43fac2fee0c2dbbd60bd9d66"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\popover.tsx": {
+    "mtime": 1781526191.8152215,
+    "ast_hash": "61634f232c0fee4cab67d97f8140b5d8",
+    "semantic_hash": "61634f232c0fee4cab67d97f8140b5d8"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\components\\ui\\textarea.tsx": {
+    "mtime": 1781441706.3238375,
+    "ast_hash": "fad24190d22025322337623f34f777f6",
+    "semantic_hash": "fad24190d22025322337623f34f777f6"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\assessments\\AssessmentCard.tsx": {
+    "mtime": 1781441829.2834024,
+    "ast_hash": "b76c91a4ef4bec996adee14a430107d7",
+    "semantic_hash": "b76c91a4ef4bec996adee14a430107d7"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\assessments\\AssessmentFilters.tsx": {
+    "mtime": 1781530206.1322584,
+    "ast_hash": "9836ec3cc49034ca6c04e39ce9ea0e8d",
+    "semantic_hash": "9836ec3cc49034ca6c04e39ce9ea0e8d"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\assessments\\AssessmentRow.tsx": {
+    "mtime": 1781441815.8302798,
+    "ast_hash": "ca39b1e78f3d22f3292ee87538d6c033",
+    "semantic_hash": "ca39b1e78f3d22f3292ee87538d6c033"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\assessments\\KanbanCard.tsx": {
+    "mtime": 1781442828.5491126,
+    "ast_hash": "bf59ae636bda7f6cb9f9aed554361bab",
+    "semantic_hash": "bf59ae636bda7f6cb9f9aed554361bab"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\assessments\\useAssessments.ts": {
+    "mtime": 1781526699.2992465,
+    "ast_hash": "be3692c92d5914271bf9880eb044b9f6",
+    "semantic_hash": "be3692c92d5914271bf9880eb044b9f6"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\auth\\ProtectedRoute.tsx": {
+    "mtime": 1781445498.1894288,
+    "ast_hash": "35280b60b8e4b33646a5612ddf1606b4",
+    "semantic_hash": "35280b60b8e4b33646a5612ddf1606b4"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\auth\\SignInForm.tsx": {
+    "mtime": 1781526578.0232458,
+    "ast_hash": "4fa28abbcbcadd586c4443fcd498d11d",
+    "semantic_hash": "4fa28abbcbcadd586c4443fcd498d11d"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\auth\\SignUpForm.tsx": {
+    "mtime": 1781526596.902231,
+    "ast_hash": "d40c3213ab9ce4d98679173244fa5aae",
+    "semantic_hash": "d40c3213ab9ce4d98679173244fa5aae"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\auth\\useAuth.ts": {
+    "mtime": 1781531881.8834603,
+    "ast_hash": "f601855f6379cb1781bf070d539b231e",
+    "semantic_hash": "f601855f6379cb1781bf070d539b231e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\calendar\\CalendarGrid.tsx": {
+    "mtime": 1781519554.5949192,
+    "ast_hash": "e4b4b0edeb67fd26903164d2a31bcf82",
+    "semantic_hash": "e4b4b0edeb67fd26903164d2a31bcf82"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\preferences\\useTheme.ts": {
+    "mtime": 1781519388.0736227,
+    "ast_hash": "fec0b21dd913a60b6db55841b8605e91",
+    "semantic_hash": "fec0b21dd913a60b6db55841b8605e91"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\features\\preferences\\useUserPreferences.ts": {
+    "mtime": 1781519713.9041433,
+    "ast_hash": "ea44653bc76e8b35f0779f0d41bc731e",
+    "semantic_hash": "ea44653bc76e8b35f0779f0d41bc731e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\hooks\\useGlobalShortcuts.ts": {
+    "mtime": 1781526369.5319655,
+    "ast_hash": "8f29d323d84417590cbad49a9bbe983d",
+    "semantic_hash": "8f29d323d84417590cbad49a9bbe983d"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\hooks\\useRouteTransition.ts": {
+    "mtime": 1781526737.1284733,
+    "ast_hash": "d29579fa2d331f95f8b4832c315f8202",
+    "semantic_hash": "d29579fa2d331f95f8b4832c315f8202"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\lib\\auth-client.ts": {
+    "mtime": 1781445517.9493299,
+    "ast_hash": "d1e74b322fb5a1cd70d566dda43fe4aa",
+    "semantic_hash": "d1e74b322fb5a1cd70d566dda43fe4aa"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\lib\\convex.ts": {
+    "mtime": 1781570345.3677938,
+    "ast_hash": "f3c7700e4527453e20a42291915d6ad4",
+    "semantic_hash": "f3c7700e4527453e20a42291915d6ad4"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\lib\\utils.ts": {
+    "mtime": 1781442013.6549067,
+    "ast_hash": "c0716b1398ce2fd56f7080a8fd1f6425",
+    "semantic_hash": "c0716b1398ce2fd56f7080a8fd1f6425"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\main.tsx": {
+    "mtime": 1781445275.9657507,
+    "ast_hash": "f62365a89bc888cc542fe629adea5ac5",
+    "semantic_hash": "f62365a89bc888cc542fe629adea5ac5"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\AssessmentsPage.tsx": {
+    "mtime": 1781528438.3546495,
+    "ast_hash": "2013b22eecece0e339396325afff3689",
+    "semantic_hash": "2013b22eecece0e339396325afff3689"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\CalendarPage.tsx": {
+    "mtime": 1781528423.2516637,
+    "ast_hash": "1e27305193728c893cfabc876714e8a6",
+    "semantic_hash": "1e27305193728c893cfabc876714e8a6"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\DashboardPage.tsx": {
+    "mtime": 1781528405.7383385,
+    "ast_hash": "d6340934b1092d0667233b1659a78e13",
+    "semantic_hash": "d6340934b1092d0667233b1659a78e13"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\NotFoundPage.tsx": {
+    "mtime": 1781445359.7714252,
+    "ast_hash": "e5425ac5949e4e07ece401a20f3f6ac4",
+    "semantic_hash": "e5425ac5949e4e07ece401a20f3f6ac4"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\SettingsPage.tsx": {
+    "mtime": 1781527638.503315,
+    "ast_hash": "048bf856b680531cd67d3ab6884cda8c",
+    "semantic_hash": "048bf856b680531cd67d3ab6884cda8c"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\SignInPage.tsx": {
+    "mtime": 1781445345.880574,
+    "ast_hash": "7a6922184374f465f685a8dd785cc8db",
+    "semantic_hash": "7a6922184374f465f685a8dd785cc8db"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\pages\\SignUpPage.tsx": {
+    "mtime": 1781445352.7790744,
+    "ast_hash": "97584fbb89e38ef7f91dbe53619b5be4",
+    "semantic_hash": "97584fbb89e38ef7f91dbe53619b5be4"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\routes\\index.tsx": {
+    "mtime": 1781528018.2608137,
+    "ast_hash": "76c19ecf06bdf706dd42a54426c87541",
+    "semantic_hash": "76c19ecf06bdf706dd42a54426c87541"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\src\\types\\assessment.ts": {
+    "mtime": 1781444513.8456302,
+    "ast_hash": "0bbdf3f12f69e202909b75ec9ed05b18",
+    "semantic_hash": "0bbdf3f12f69e202909b75ec9ed05b18"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\tsconfig.app.json": {
+    "mtime": 1781445704.9049711,
+    "ast_hash": "bb128496e4b726e84a5bdee25c4cb1c8",
+    "semantic_hash": "bb128496e4b726e84a5bdee25c4cb1c8"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\tsconfig.json": {
+    "mtime": 1781445655.090308,
+    "ast_hash": "e2222f5d5f1c3d384a8bbc8ab7f5933f",
+    "semantic_hash": "e2222f5d5f1c3d384a8bbc8ab7f5933f"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\tsconfig.node.json": {
+    "mtime": 1779695201.535753,
+    "ast_hash": "70bdd0a673bcfc0e828080b306e7c680",
+    "semantic_hash": "70bdd0a673bcfc0e828080b306e7c680"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\vercel.json": {
+    "mtime": 1781530895.5899591,
+    "ast_hash": "3ce034f37a6661efc8073a99b87d2c87",
+    "semantic_hash": "3ce034f37a6661efc8073a99b87d2c87"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\vite.config.ts": {
+    "mtime": 1781441592.5018837,
+    "ast_hash": "e307fe9cc8cfd41e901798b7fef8ea13",
+    "semantic_hash": "e307fe9cc8cfd41e901798b7fef8ea13"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\SKILL.md": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "aba5e174ea7c033a711817e7e29adb26",
+    "semantic_hash": "aba5e174ea7c033a711817e7e29adb26"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\agents\\openai.yaml": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "0a7ae3f14ed8bbb7a59c8838d8e58bbc",
+    "semantic_hash": "0a7ae3f14ed8bbb7a59c8838d8e58bbc"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\references\\advanced-patterns.md": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "c521b78d48ce8ae0bd9613766063e463",
+    "semantic_hash": "c521b78d48ce8ae0bd9613766063e463"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\references\\hybrid-components.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "927a09d1ec50cffbcbe90c0d3b7145f7",
+    "semantic_hash": "927a09d1ec50cffbcbe90c0d3b7145f7"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\references\\local-components.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "fa7ca7ad7cb3a6599c0ed76ca7da1cf3",
+    "semantic_hash": "fa7ca7ad7cb3a6599c0ed76ca7da1cf3"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\references\\packaged-components.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "f2572e9e30a334c4ca4e96a54f16108b",
+    "semantic_hash": "f2572e9e30a334c4ca4e96a54f16108b"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-migration-helper\\SKILL.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "b36253cd6208c2c9cb605fbbb8346fd9",
+    "semantic_hash": "b36253cd6208c2c9cb605fbbb8346fd9"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-migration-helper\\agents\\openai.yaml": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "2e6fb6113c711b485feae55627659d19",
+    "semantic_hash": "2e6fb6113c711b485feae55627659d19"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-migration-helper\\references\\migration-patterns.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "3b2724a8ca3f2a041c78f92e6a7cedeb",
+    "semantic_hash": "3b2724a8ca3f2a041c78f92e6a7cedeb"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-migration-helper\\references\\migrations-component.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "aa0dba7e8b4336da2a8b92d7e10ab95c",
+    "semantic_hash": "aa0dba7e8b4336da2a8b92d7e10ab95c"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\SKILL.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "a87f528412cb9f4b9d1a2cae6b77392e",
+    "semantic_hash": "a87f528412cb9f4b9d1a2cae6b77392e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\agents\\openai.yaml": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "fcceae233d93de638332d7419443bedf",
+    "semantic_hash": "fcceae233d93de638332d7419443bedf"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\references\\function-budget.md": {
+    "mtime": 1781524135.4850936,
+    "ast_hash": "7d3345eaa4cadd3706cb7d0c245e91ed",
+    "semantic_hash": "7d3345eaa4cadd3706cb7d0c245e91ed"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\references\\hot-path-rules.md": {
+    "mtime": 1781524135.4850936,
+    "ast_hash": "8015a530db1586dc684daa40d37c9c5e",
+    "semantic_hash": "8015a530db1586dc684daa40d37c9c5e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\references\\occ-conflicts.md": {
+    "mtime": 1781524135.4871044,
+    "ast_hash": "67910e750e26c1d431d8d46e50eca490",
+    "semantic_hash": "67910e750e26c1d431d8d46e50eca490"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\references\\subscription-cost.md": {
+    "mtime": 1781524135.4871044,
+    "ast_hash": "6af1c1c1b47d36d2b69002111ce372df",
+    "semantic_hash": "6af1c1c1b47d36d2b69002111ce372df"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-quickstart\\SKILL.md": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "6e611fcde8ac05c4c810dcd7fd5068a2",
+    "semantic_hash": "6e611fcde8ac05c4c810dcd7fd5068a2"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-quickstart\\agents\\openai.yaml": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "488d168fd73397e3f8d84cc2191214bb",
+    "semantic_hash": "488d168fd73397e3f8d84cc2191214bb"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\SKILL.md": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "06366db7119b25ddf68175979166d1a7",
+    "semantic_hash": "06366db7119b25ddf68175979166d1a7"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\agents\\openai.yaml": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "6085f6499e386748452563303ad8d075",
+    "semantic_hash": "6085f6499e386748452563303ad8d075"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\references\\auth0.md": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "65d097addc858433fe10e97882528ae1",
+    "semantic_hash": "65d097addc858433fe10e97882528ae1"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\references\\clerk.md": {
+    "mtime": 1781524135.4939826,
+    "ast_hash": "692b879bedc8bc5787e1813cd04cf711",
+    "semantic_hash": "692b879bedc8bc5787e1813cd04cf711"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\references\\convex-auth.md": {
+    "mtime": 1781524135.4939826,
+    "ast_hash": "6bf92f2d2db0304c5cb3d45751e9e082",
+    "semantic_hash": "6bf92f2d2db0304c5cb3d45751e9e082"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\references\\workos-authkit.md": {
+    "mtime": 1781524135.4939826,
+    "ast_hash": "43b20ab3d92d60ae7785ed73a024ad26",
+    "semantic_hash": "43b20ab3d92d60ae7785ed73a024ad26"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex\\SKILL.md": {
+    "mtime": 1781524135.495989,
+    "ast_hash": "a79b3d59cd110f16134585800b876874",
+    "semantic_hash": "a79b3d59cd110f16134585800b876874"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\SKILL.md": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "aba5e174ea7c033a711817e7e29adb26",
+    "semantic_hash": "aba5e174ea7c033a711817e7e29adb26"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\agents\\openai.yaml": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "0a7ae3f14ed8bbb7a59c8838d8e58bbc",
+    "semantic_hash": "0a7ae3f14ed8bbb7a59c8838d8e58bbc"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\references\\advanced-patterns.md": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "c521b78d48ce8ae0bd9613766063e463",
+    "semantic_hash": "c521b78d48ce8ae0bd9613766063e463"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\references\\hybrid-components.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "927a09d1ec50cffbcbe90c0d3b7145f7",
+    "semantic_hash": "927a09d1ec50cffbcbe90c0d3b7145f7"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\references\\local-components.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "fa7ca7ad7cb3a6599c0ed76ca7da1cf3",
+    "semantic_hash": "fa7ca7ad7cb3a6599c0ed76ca7da1cf3"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\references\\packaged-components.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "f2572e9e30a334c4ca4e96a54f16108b",
+    "semantic_hash": "f2572e9e30a334c4ca4e96a54f16108b"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-migration-helper\\SKILL.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "b36253cd6208c2c9cb605fbbb8346fd9",
+    "semantic_hash": "b36253cd6208c2c9cb605fbbb8346fd9"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-migration-helper\\agents\\openai.yaml": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "2e6fb6113c711b485feae55627659d19",
+    "semantic_hash": "2e6fb6113c711b485feae55627659d19"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-migration-helper\\references\\migration-patterns.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "3b2724a8ca3f2a041c78f92e6a7cedeb",
+    "semantic_hash": "3b2724a8ca3f2a041c78f92e6a7cedeb"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-migration-helper\\references\\migrations-component.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "aa0dba7e8b4336da2a8b92d7e10ab95c",
+    "semantic_hash": "aa0dba7e8b4336da2a8b92d7e10ab95c"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\SKILL.md": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "a87f528412cb9f4b9d1a2cae6b77392e",
+    "semantic_hash": "a87f528412cb9f4b9d1a2cae6b77392e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\agents\\openai.yaml": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "fcceae233d93de638332d7419443bedf",
+    "semantic_hash": "fcceae233d93de638332d7419443bedf"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\references\\function-budget.md": {
+    "mtime": 1781524135.4850936,
+    "ast_hash": "7d3345eaa4cadd3706cb7d0c245e91ed",
+    "semantic_hash": "7d3345eaa4cadd3706cb7d0c245e91ed"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\references\\hot-path-rules.md": {
+    "mtime": 1781524135.4850936,
+    "ast_hash": "8015a530db1586dc684daa40d37c9c5e",
+    "semantic_hash": "8015a530db1586dc684daa40d37c9c5e"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\references\\occ-conflicts.md": {
+    "mtime": 1781524135.4871044,
+    "ast_hash": "67910e750e26c1d431d8d46e50eca490",
+    "semantic_hash": "67910e750e26c1d431d8d46e50eca490"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\references\\subscription-cost.md": {
+    "mtime": 1781524135.4871044,
+    "ast_hash": "6af1c1c1b47d36d2b69002111ce372df",
+    "semantic_hash": "6af1c1c1b47d36d2b69002111ce372df"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-quickstart\\SKILL.md": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "6e611fcde8ac05c4c810dcd7fd5068a2",
+    "semantic_hash": "6e611fcde8ac05c4c810dcd7fd5068a2"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-quickstart\\agents\\openai.yaml": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "488d168fd73397e3f8d84cc2191214bb",
+    "semantic_hash": "488d168fd73397e3f8d84cc2191214bb"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\SKILL.md": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "06366db7119b25ddf68175979166d1a7",
+    "semantic_hash": "06366db7119b25ddf68175979166d1a7"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\agents\\openai.yaml": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "6085f6499e386748452563303ad8d075",
+    "semantic_hash": "6085f6499e386748452563303ad8d075"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\references\\auth0.md": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "65d097addc858433fe10e97882528ae1",
+    "semantic_hash": "65d097addc858433fe10e97882528ae1"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\references\\clerk.md": {
+    "mtime": 1781524135.4939826,
+    "ast_hash": "692b879bedc8bc5787e1813cd04cf711",
+    "semantic_hash": "692b879bedc8bc5787e1813cd04cf711"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\references\\convex-auth.md": {
+    "mtime": 1781524135.4939826,
+    "ast_hash": "6bf92f2d2db0304c5cb3d45751e9e082",
+    "semantic_hash": "6bf92f2d2db0304c5cb3d45751e9e082"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\references\\workos-authkit.md": {
+    "mtime": 1781524135.4939826,
+    "ast_hash": "43b20ab3d92d60ae7785ed73a024ad26",
+    "semantic_hash": "43b20ab3d92d60ae7785ed73a024ad26"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex\\SKILL.md": {
+    "mtime": 1781524135.495989,
+    "ast_hash": "a79b3d59cd110f16134585800b876874",
+    "semantic_hash": "a79b3d59cd110f16134585800b876874"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\AGENTS.md": {
+    "mtime": 1781444266.5475266,
+    "ast_hash": "34281e9ffd842238948717ac9c01f392",
+    "semantic_hash": "34281e9ffd842238948717ac9c01f392"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\CLAUDE.md": {
+    "mtime": 1781444266.555529,
+    "ast_hash": "34281e9ffd842238948717ac9c01f392",
+    "semantic_hash": "34281e9ffd842238948717ac9c01f392"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\README.md": {
+    "mtime": 1781444371.8147278,
+    "ast_hash": "f105d1df62782b38b925e9535475a125",
+    "semantic_hash": "f105d1df62782b38b925e9535475a125"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\convex\\README.md": {
+    "mtime": 1781444258.2909112,
+    "ast_hash": "3a0f15b8c7f1cc532958811e1ce6d311",
+    "semantic_hash": "3a0f15b8c7f1cc532958811e1ce6d311"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\index.html": {
+    "mtime": 1781441617.5307531,
+    "ast_hash": "f57ef594544fca1a6991870ecd9ca8cd",
+    "semantic_hash": "f57ef594544fca1a6991870ecd9ca8cd"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-create-component\\assets\\icon.svg": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "750ee31db4186a3a336f1c6376a15221",
+    "semantic_hash": "750ee31db4186a3a336f1c6376a15221"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-migration-helper\\assets\\icon.svg": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "d3f9b469ddd0979fdf7a34ffdf0d291d",
+    "semantic_hash": "d3f9b469ddd0979fdf7a34ffdf0d291d"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-performance-audit\\assets\\icon.svg": {
+    "mtime": 1781524135.4850936,
+    "ast_hash": "9d96d8029f3a3e73c898bffd41abbf4b",
+    "semantic_hash": "9d96d8029f3a3e73c898bffd41abbf4b"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-quickstart\\assets\\icon.svg": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "ee6d5a57c359c31069c6543131eecfb0",
+    "semantic_hash": "ee6d5a57c359c31069c6543131eecfb0"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.agents\\skills\\convex-setup-auth\\assets\\icon.svg": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "5fd65f0f070bca77e1ea8ed46fbc1fd3",
+    "semantic_hash": "5fd65f0f070bca77e1ea8ed46fbc1fd3"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-create-component\\assets\\icon.svg": {
+    "mtime": 1781524135.4683008,
+    "ast_hash": "750ee31db4186a3a336f1c6376a15221",
+    "semantic_hash": "750ee31db4186a3a336f1c6376a15221"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-migration-helper\\assets\\icon.svg": {
+    "mtime": 1781524135.477993,
+    "ast_hash": "d3f9b469ddd0979fdf7a34ffdf0d291d",
+    "semantic_hash": "d3f9b469ddd0979fdf7a34ffdf0d291d"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-performance-audit\\assets\\icon.svg": {
+    "mtime": 1781524135.4850936,
+    "ast_hash": "9d96d8029f3a3e73c898bffd41abbf4b",
+    "semantic_hash": "9d96d8029f3a3e73c898bffd41abbf4b"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-quickstart\\assets\\icon.svg": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "ee6d5a57c359c31069c6543131eecfb0",
+    "semantic_hash": "ee6d5a57c359c31069c6543131eecfb0"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\.claude\\skills\\convex-setup-auth\\assets\\icon.svg": {
+    "mtime": 1781524135.4890685,
+    "ast_hash": "5fd65f0f070bca77e1ea8ed46fbc1fd3",
+    "semantic_hash": "5fd65f0f070bca77e1ea8ed46fbc1fd3"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\public\\favicon.svg": {
+    "mtime": 1779695201.5852473,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "C:\\Users\\ns.coco\\Desktop\\Lael\\lael-app\\public\\icons.svg": {
+    "mtime": 1779695201.5990791,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  }
+}
