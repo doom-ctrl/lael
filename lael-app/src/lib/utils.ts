@@ -13,14 +13,8 @@ export function cn(...inputs: ClassValue[]): string {
 
 /* ─── Date helpers ───────────────────────────────────────────────────────── */
 
-/** Reference "today" used for demo data. Phase 3+ will swap to `new Date()`. */
-export const DEMO_TODAY = new Date(2026, 5, 14); // June 14, 2026 (local time)
-
 /** "JUN" / "15" — the month/day pair shown in the date badge. */
-export function formatDateBadge(
-  dueDateStr: string,
-  _today: Date = DEMO_TODAY,
-): { month: string; day: number } {
+export function formatDateBadge(dueDateStr: string): { month: string; day: number } {
   // Use T00:00:00 to force local time parsing (not UTC)
   const d = new Date(dueDateStr + 'T00:00:00');
   const monthStr = d.toLocaleString('en', { month: 'short' }).toUpperCase();
@@ -29,10 +23,7 @@ export function formatDateBadge(
 }
 
 /** "Today" / "Tomorrow" / "In 3 days" / "Yesterday" / "2 days ago" / etc. */
-export function daysUntil(
-  dueDateStr: string,
-  today: Date = DEMO_TODAY,
-): string {
+export function daysUntil(dueDateStr: string, today: Date = new Date()): string {
   // Use T00:00:00 to force local time parsing (not UTC)
   const due = new Date(dueDateStr + 'T00:00:00');
   const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
@@ -59,7 +50,7 @@ export function daysUntil(
 export function isOverdue(
   dueDateStr: string,
   status: string,
-  today: Date = DEMO_TODAY,
+  today: Date = new Date(),
 ): boolean {
   if (status === 'overdue') return true;
   if (status === 'completed') return false;

@@ -469,7 +469,7 @@ function DayItemCard({
               overdue ? 'text-danger' : 'text-text-tertiary',
             )}
           >
-            {formatDateBadge(item.dueDate, today).month}
+            {formatDateBadge(item.dueDate).month}
           </span>
           <span
             className={cn(
@@ -477,7 +477,7 @@ function DayItemCard({
               overdue ? 'text-danger' : 'text-text-primary',
             )}
           >
-            {formatDateBadge(item.dueDate, today).day}
+            {formatDateBadge(item.dueDate).day}
           </span>
         </div>
 
