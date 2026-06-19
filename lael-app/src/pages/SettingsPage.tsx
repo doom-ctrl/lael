@@ -31,17 +31,6 @@ import {
 } from '@/lib/design-tokens';
 import type { ViewMode } from '@/components/common/ViewToggle';
 
-const TIMEZONE_OPTIONS = [
-  'auto',
-  'America/New_York',
-  'America/Los_Angeles',
-  'America/Chicago',
-  'Europe/London',
-  'Europe/Paris',
-  'Asia/Tokyo',
-  'Asia/Shanghai',
-];
-
 const inputClass = cn(
   'h-8 rounded-md border border-border bg-surface px-2.5 text-[12px] text-text-primary',
   'transition-[border-color,box-shadow] duration-150',
@@ -65,8 +54,7 @@ const dangerButtonClass = cn(
 /* ─── Data export helpers ───────────────────────────────────────────────── */
 
 /**
- * Build a filename like `lael-export-2026-06-15.json`. Date uses
- * the user's local timezone (matches the date they see in the UI).
+ * Build a filename like `lael-export-2026-06-15.json`.
  */
 function exportFilename(ext: 'json' | 'csv'): string {
   const d = new Date();
@@ -252,7 +240,6 @@ export function SettingsPage() {
       density: DEFAULT_PREFERENCES.density,
       weekStart: DEFAULT_PREFERENCES.weekStart,
       showWeekNumbers: DEFAULT_PREFERENCES.showWeekNumbers,
-      timezone: DEFAULT_PREFERENCES.timezone,
       emailNotifications: DEFAULT_PREFERENCES.emailNotifications,
       reminderTiming: DEFAULT_PREFERENCES.reminderTiming,
       dailyDigest: DEFAULT_PREFERENCES.dailyDigest,
@@ -450,25 +437,6 @@ export function SettingsPage() {
                   ariaLabel="Show week numbers"
                   disabled
                 />
-              }
-            />
-            <SettingsRow
-              label="Time zone"
-              description="For display only — storage stays UTC."
-              control={
-                <select
-                  value={prefs.timezone}
-                  onChange={(e) =>
-                    update({ timezone: e.target.value })
-                  }
-                  className={cn(inputClass, 'w-[200px] cursor-pointer')}
-                >
-                  {TIMEZONE_OPTIONS.map((tz) => (
-                    <option key={tz} value={tz}>
-                      {tz === 'auto' ? 'Auto-detect' : tz}
-                    </option>
-                  ))}
-                </select>
               }
             />
           </SettingsSection>

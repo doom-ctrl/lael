@@ -245,7 +245,6 @@ export interface UserPreferences {
   density?: Density;
   weekStart?: WeekStart;
   showWeekNumbers?: boolean;
-  timezone?: string;
   emailNotifications?: boolean;
   reminderTiming?: ReminderTiming;
   dailyDigest?: boolean;
@@ -259,7 +258,6 @@ export const DEFAULT_PREFERENCES: Required<UserPreferences> = {
   density: 'comfortable',
   weekStart: 'sunday',
   showWeekNumbers: false,
-  timezone: 'auto',
   emailNotifications: true,
   reminderTiming: '1day',
   dailyDigest: false,

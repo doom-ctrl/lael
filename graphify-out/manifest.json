@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "lael-app/convex/assessments.ts": {
-    "mtime": 1781863976.7920704,
-    "ast_hash": "8b0287e761828eb017ed5e8939c2a7ef",
+    "mtime": 1781865225.6307619,
+    "ast_hash": "a68f96c33868c0bfd9a6880b848dadc6",
     "semantic_hash": ""
   },
   "lael-app/convex/auth.config.ts": {
@@ -325,8 +325,8 @@
     "semantic_hash": ""
   },
   "lael-app/src/lib/utils.ts": {
-    "mtime": 1781864736.2345188,
-    "ast_hash": "dd7d5c6c4df97dac5d20993ac748947c",
+    "mtime": 1781865225.6686704,
+    "ast_hash": "cefb5be58423179b0d313d2d996a292e",
     "semantic_hash": ""
   },
   "lael-app/src/main.tsx": {
@@ -720,8 +720,8 @@
     "semantic_hash": ""
   },
   "progress.md": {
-    "mtime": 1781862539.6137419,
-    "ast_hash": "c79e953b2af7749af0cfc368cc0c7df6",
+    "mtime": 1781865225.6696727,
+    "ast_hash": "dd829660b85259614b6ba2a1cc5b4d9c",
     "semantic_hash": ""
   },
   "design-demos/assessments.png": {
