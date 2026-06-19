@@ -78,6 +78,11 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
       requireEmailVerification: false,
       minPasswordLength: 8,
     },
+    // Session configuration: 30-day expiry, refresh every 7 days
+    session: {
+      expiresIn: 60 * 60 * 24 * 30, // 30 days in seconds
+      updateAge: 60 * 60 * 24 * 7, // update session every 7 days
+    },
     plugins: [crossDomain({ siteUrl }), convex({ authConfig })],
   } satisfies BetterAuthOptions);
 };

@@ -66,9 +66,9 @@ export function useDashboardData(today: Date = new Date()) {
   return useMemo(() => {
     if (!assessments) return undefined;
 
-    const todayStr = today.toISOString().slice(0, 10);
-    const weekFromNow = new Date(today);
-    weekFromNow.setDate(weekFromNow.getDate() + 7);
+    // Use local date to avoid UTC timezone off-by-one errors
+    const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const weekFromNow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
 
     const upcoming = assessments
       .filter((a) => a.status !== 'completed')

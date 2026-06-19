@@ -62,18 +62,17 @@ async function requireUser(ctx: {
   return user;
 }
 
-/** `YYYY-MM-DD` → Unix ms at midnight UTC. Stable across timezones. */
+/** `YYYY-MM-DD` → Unix ms at local midnight. */
 function dateStrToTimestamp(s: string): number {
-  return Date.UTC(
-    Number(s.slice(0, 4)),
-    Number(s.slice(5, 7)) - 1,
-    Number(s.slice(8, 10)),
-  );
+  const [year, month, day] = s.split('-').map(Number);
+  // Use local midnight to match frontend interpretation
+  return new Date(year, month - 1, day, 0, 0, 0, 0).getTime();
 }
 
-/** Unix ms → `YYYY-MM-DD` (UTC). */
+/** Unix ms → `YYYY-MM-DD` (local). */
 function timestampToDateStr(ts: number): string {
-  return new Date(ts).toISOString().slice(0, 10);
+  const d = new Date(ts);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 /** Storage → wire shape. */
@@ -120,8 +119,9 @@ export const listByMonth = query({
   handler: async (ctx, { year, month }) => {
     let user: { _id: string } | null = null;
     try { user = await requireUser(ctx); } catch { return []; }
-    const start = Date.UTC(year, month, 1);
-    const end = Date.UTC(year, month + 1, 1);
+    // Use local midnight ranges to match stored local timestamps
+    const start = new Date(year, month, 1, 0, 0, 0, 0).getTime();
+    const end = new Date(year, month + 1, 1, 0, 0, 0, 0).getTime();
     const docs = await ctx.db
       .query("assessments")
       .withIndex("by_user_dueDate", (q) =>

@@ -14,17 +14,19 @@ export function cn(...inputs: ClassValue[]): string {
 /* ─── Date helpers ───────────────────────────────────────────────────────── */
 
 /** Reference "today" used for demo data. Phase 3+ will swap to `new Date()`. */
-export const DEMO_TODAY = new Date('2026-06-14');
+export const DEMO_TODAY = new Date(2026, 5, 14); // June 14, 2026 (local time)
 
 /** "JUN" / "15" — the month/day pair shown in the date badge. */
 export function formatDateBadge(
   dueDateStr: string,
   _today: Date = DEMO_TODAY,
 ): { month: string; day: number } {
-  const d = new Date(dueDateStr);
-  const month = d.toLocaleString('en', { month: 'short' }).toUpperCase();
-  const day = d.getDate();
-  return { month, day };
+  // Parse as local date to avoid UTC timezone off-by-one errors
+  const [year, month, day] = dueDateStr.split('-').map(Number);
+  const d = new Date(year, month - 1, day);
+  const monthStr = d.toLocaleString('en', { month: 'short' }).toUpperCase();
+  const dayNum = d.getDate();
+  return { month: monthStr, day: dayNum };
 }
 
 /** "Today" / "Tomorrow" / "In 3 days" / "Yesterday" / "2 days ago" / etc. */
@@ -32,9 +34,16 @@ export function daysUntil(
   dueDateStr: string,
   today: Date = DEMO_TODAY,
 ): string {
-  const due = new Date(dueDateStr);
-  const diff = Math.floor(
-    (due.getTime() - today.getTime()) / (1000 * 60 * 60 * 24),
+  // Parse as local date to avoid UTC timezone off-by-one errors
+  const [year, month, day] = dueDateStr.split('-').map(Number);
+  const due = new Date(year, month - 1, day);
+
+  // Normalize both dates to local midnight for accurate day difference
+  const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const dueMidnight = new Date(year, month - 1, day);
+
+  const diff = Math.round(
+    (dueMidnight.getTime() - todayMidnight.getTime()) / (1000 * 60 * 60 * 24),
   );
   if (diff === 0) return 'Today';
   if (diff === 1) return 'Tomorrow';
@@ -52,7 +61,11 @@ export function isOverdue(
 ): boolean {
   if (status === 'overdue') return true;
   if (status === 'completed') return false;
-  return new Date(dueDateStr) < today;
+  // Parse as local date to avoid UTC timezone off-by-one errors
+  const [year, month, day] = dueDateStr.split('-').map(Number);
+  const dueMidnight = new Date(year, month - 1, day);
+  const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  return dueMidnight < todayMidnight;
 }
 
 /** Long, friendly date for headers: "Sunday, June 14". */
