@@ -58,22 +58,12 @@ export function Navbar({ onAddClick }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Mobile is always compact — the icon row (search, Add, hamburger,
-  // avatar) doesn't gain anything from expanding, and the search/Add
-  // width transitions were already hard-coded to 32px on `sm`-down.
-  // Deriving `compact` once here means every layout decision below
-  // reads the same single source instead of each computing its own
-  // `scrolled || isMobile` check.
-  const [isMobile, setIsMobile] = React.useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches,
-  );
-  React.useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-  const compact = scrolled || isMobile;
+  // The pill is always compact — the "expanded top-of-page" state was
+  // a vertical waste of space. `scrolled` is still tracked separately
+  // for the shadow/border toggle (a scroll-specific visual cue), but
+  // layout decisions (height, gap, padding, child widths, opacity)
+  // use the unconditional `compact` flag.
+  const compact = true;
 
   // Auto-close the mobile drawer on route change.
   React.useEffect(() => {
