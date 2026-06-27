@@ -1,1 +1,1 @@
-{"root":["./assessments.ts","./auth.config.ts","./auth.ts","./convex.config.ts","./http.ts","./schema.ts","./userpreferences.ts"],"version":"6.0.3"}
+{"root":["./assessments.ts","./auth.config.ts","./auth.ts","./convex.config.ts","./crons.ts","./http.ts","./schema.ts","./userimage.ts","./userpreferences.ts","./usersecurity.ts","./internal/email.ts","./internal/reminders.ts"],"version":"6.0.3"}

@@ -36,7 +36,7 @@ export function Toaster() {
         unstyled: true,
         classNames: {
           toast: cn(
-            'group relative flex w-[360px] items-start gap-3 overflow-hidden',
+            'group relative flex w-[calc(100vw-32px)] max-w-[360px] items-start gap-3 overflow-hidden',
             'rounded-xl border border-border bg-surface px-4 py-3',
             'shadow-[0_12px_40px_rgba(28,25,23,0.12)]',
             'data-[type=success]:border-l-[3px] data-[type=success]:border-l-success',
@@ -49,6 +49,12 @@ export function Toaster() {
           closeButton:
             'absolute right-2 top-2 inline-flex h-5 w-5 items-center justify-center rounded-md bg-transparent text-text-tertiary transition-colors hover:bg-bg-warm hover:text-text-primary',
           icon: 'mt-0.5 flex-shrink-0',
+          // `action` is sonner's built-in button slot (used by
+          // error toasts that want a Retry button, etc.). The
+          // default styling is invisible under `unstyled: true`,
+          // so we restyle it to match our warm editorial palette.
+          actionButton:
+            'ml-auto inline-flex h-6 items-center justify-center rounded-md border border-border bg-bg-warm px-2 text-[11px] font-medium text-text-primary transition-colors hover:bg-accent-light hover:border-accent-border hover:text-accent',
         },
       }}
     />

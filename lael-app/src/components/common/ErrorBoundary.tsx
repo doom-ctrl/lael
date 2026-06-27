@@ -4,7 +4,13 @@ import { Button } from '@/components/ui/button';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
-  fallback?: React.ReactNode;
+  /**
+   * Either a static fallback node, or a render function that
+   * receives the caught error and a `reset` callback. The
+   * render-function shape is what lets pages pass `<QueryError />`
+   * with the real error message and a meaningful retry button.
+   */
+  fallback?: React.ReactNode | ((args: { error: Error; reset: () => void }) => React.ReactNode);
 }
 
 interface ErrorBoundaryState {
@@ -36,7 +42,8 @@ export class ErrorBoundary extends React.Component<
 
   handleReload = (): void => {
     this.setState({ hasError: false, error: null });
-    // Also remount children to reset internal state.
+    // Hard reload — the only reliable way to re-run a cached
+    // Convex query that errored.
     window.location.reload();
   };
 
@@ -45,8 +52,12 @@ export class ErrorBoundary extends React.Component<
   };
 
   render() {
-    if (this.state.hasError) {
-      if (this.props.fallback) return this.props.fallback;
+    if (this.state.hasError && this.state.error) {
+      const { fallback } = this.props;
+      if (typeof fallback === 'function') {
+        return fallback({ error: this.state.error, reset: this.handleReset });
+      }
+      if (fallback) return fallback;
       return (
         <div className="flex min-h-screen items-center justify-center bg-bg p-6">
           <div className="w-full max-w-md rounded-xl border border-border bg-surface p-8 text-center shadow-soft">

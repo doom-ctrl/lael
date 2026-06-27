@@ -3,6 +3,8 @@ import { DashboardPage } from '@/pages/DashboardPage';
 import { AssessmentsPage } from '@/pages/AssessmentsPage';
 import { CalendarPage } from '@/pages/CalendarPage';
 import { SettingsPage } from '@/pages/SettingsPage';
+import { ChangePasswordPage } from '@/pages/ChangePasswordPage';
+import { ChangeEmailPage } from '@/pages/ChangeEmailPage';
 import { SignInPage } from '@/pages/SignInPage';
 import { SignUpPage } from '@/pages/SignUpPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
@@ -46,6 +48,8 @@ const router = createBrowserRouter([
           { path: 'assessments', element: <AssessmentsPage /> },
           { path: 'calendar', element: <CalendarPage /> },
           { path: 'settings', element: <SettingsPage /> },
+          { path: 'settings/change-password', element: <ChangePasswordPage /> },
+          { path: 'settings/change-email', element: <ChangeEmailPage /> },
         ],
       },
       { path: '*', element: <NotFoundPage /> },

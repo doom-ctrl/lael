@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react';
+import { useEffect, useMemo, useCallback, useRef } from 'react';
 import { useMutation, useQuery } from 'convex/react';
 import { api } from '@/../convex/_generated/api';
 import type { Id } from '@/../convex/_generated/dataModel';
@@ -152,6 +152,21 @@ export function useAssessmentMutations(options?: {
   // that for free, but we also write a tiny "optimistic" local
   // copy to a module-level Map so the row toggles instantly on
   // click (the round-trip would otherwise flash for ~80ms).
+  //
+  // On error, the toast surfaces a Retry action that re-runs the
+  // same call with the same args. `silent` callers (e.g. the
+  // command palette) handle their own toasts.
+  //
+  // The retry handler re-invokes the wrapped function via a ref so
+  // the closure can read the latest callback (and so the linter
+  // doesn't flag a forward reference).
+  const markCompleteRef = useRef<
+    (args: { id: Id<'assessments'>; completed: boolean }) => Promise<void>
+  >(async () => {});
+  const removeRef = useRef<(args: { id: Id<'assessments'> }) => Promise<void>>(
+    async () => {},
+  );
+
   const markCompleteWithOptimism = useCallback(
     async (args: { id: Id<'assessments'>; completed: boolean }) => {
       try {
@@ -169,13 +184,28 @@ export function useAssessmentMutations(options?: {
         if (!options?.silent) {
           toast.error(
             err instanceof Error ? err.message : 'Could not update assessment',
+            {
+              action: {
+                label: 'Retry',
+                onClick: () => {
+                  markCompleteRef.current(args);
+                },
+              },
+            },
           );
         }
         throw err;
       }
     },
-    [markComplete, options?.silent],
+    [markComplete, options],
   );
+
+  // Keep the ref pointing at the latest callback on every render
+  // — useEffect runs after the commit so retry clicks always see
+  // the freshest closure (with current `markComplete` + options).
+  useEffect(() => {
+    markCompleteRef.current = markCompleteWithOptimism;
+  }, [markCompleteWithOptimism]);
 
   const removeWithToast = useCallback(
     async (args: { id: Id<'assessments'> }) => {
@@ -185,13 +215,25 @@ export function useAssessmentMutations(options?: {
         if (!options?.silent) {
           toast.error(
             err instanceof Error ? err.message : 'Could not delete',
+            {
+              action: {
+                label: 'Retry',
+                onClick: () => {
+                  removeRef.current(args);
+                },
+              },
+            },
           );
         }
         throw err;
       }
     },
-    [remove, options?.silent],
+    [remove, options],
   );
+
+  useEffect(() => {
+    removeRef.current = removeWithToast;
+  }, [removeWithToast]);
 
   return useMemo(
     () => ({

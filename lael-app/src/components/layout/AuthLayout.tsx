@@ -24,22 +24,7 @@ export function AuthLayout({
         className="mb-6 flex items-center gap-2.5 text-text-primary no-underline"
         aria-label="Lael home"
       >
-        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent shadow-[0_2px_8px_rgba(22,101,52,0.25)]">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 16 16"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M3 4h10M3 8h7M3 12h5"
-              stroke="white"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
+        <img src="/logo.svg" alt="" aria-hidden="true" className="h-9 w-9" />
         <span className="font-display text-2xl font-normal italic tracking-[-0.02em]">
           Lael
         </span>

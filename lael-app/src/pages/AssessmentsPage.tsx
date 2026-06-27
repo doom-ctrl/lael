@@ -18,6 +18,8 @@ import {
 import { useAddAssessmentDialog } from '@/components/modals/AddAssessmentDialogProvider';
 import { useUserPreferences } from '@/features/preferences/useUserPreferences';
 import { isOverdue } from '@/lib/utils';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { QueryError } from '@/components/common/QueryError';
 import {
   type Assessment,
   type AssessmentType,
@@ -200,6 +202,11 @@ export function AssessmentsPage() {
             </>
           }
         />
+        <ErrorBoundary
+          fallback={({ error, reset }) => (
+            <QueryError error={error} onRetry={reset} className="mt-6" />
+          )}
+        >
 
         {/* Sticky filter bar */}
         <AssessmentFilters
@@ -339,6 +346,7 @@ export function AssessmentsPage() {
             </div>
           )}
         </div>
+        </ErrorBoundary>
       </PageContainer>
     </PageTransition>
   );

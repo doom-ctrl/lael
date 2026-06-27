@@ -16,6 +16,8 @@ import {
   STATUS_STYLES,
   type Assessment,
 } from '@/lib/design-tokens';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { QueryError } from '@/components/common/QueryError';
 
 /**
  * CalendarPage — full 6-week month view with a per-day side panel.
@@ -201,6 +203,11 @@ export function CalendarPage() {
         />
 
         <div className="mt-2 flex min-h-0 flex-1 flex-col gap-3 lg:flex-row">
+          <ErrorBoundary
+            fallback={({ error, reset }) => (
+              <QueryError error={error} onRetry={reset} className="flex-1" />
+            )}
+          >
           {/* ─── Day-detail side panel ─────────────────────────────── */}
           <DayDetailPanel
             year={year}
@@ -225,6 +232,7 @@ export function CalendarPage() {
             weekStart={prefs.weekStart}
             className="lg:flex-1"
           />
+          </ErrorBoundary>
         </div>
       </PageContainer>
     </PageTransition>

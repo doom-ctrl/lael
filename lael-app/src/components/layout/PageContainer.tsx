@@ -21,7 +21,7 @@ export function PageContainer({
   return (
     <div
       className={cn(
-        'mx-auto w-full px-8 pt-[18px] pb-[60px]',
+        'mx-auto w-full px-4 pt-[14px] pb-10 sm:px-6 sm:pt-[18px] sm:pb-[60px] md:px-8',
         fillHeight && 'flex min-h-0 flex-1 flex-col',
         className,
       )}

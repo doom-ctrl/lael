@@ -107,5 +107,35 @@ export default defineSchema({
     // Audit
     createdAt: v.number(),
     updatedAt: v.number(),
+
+    // Profile picture — ID into Convex's `_storage` table. Resolved
+    // to a fresh URL by `userImage.getMyImageUrl`. Absent = show
+    // initials avatar everywhere.
+    imageStorageId: v.optional(v.id("_storage")),
   }).index("by_user", ["userId"]),
+
+  // Append-only audit log of security-relevant actions on the user's
+  // account (password change, email change request, etc). Drives the
+  // "Recent security activity" feed in Settings → Account. We log from
+  // the client right after the Better Auth call succeeds — good enough
+  // for an MVP; server-side hooks via Better Auth `databaseHooks` can
+  // add ground truth later.
+  securityEvents: defineTable({
+    userId: v.string(),
+    type: v.union(
+      v.literal("password_changed"),
+      v.literal("email_change_requested"),
+      v.literal("email_changed"),
+      v.literal("avatar_changed"),
+      v.literal("avatar_removed"),
+      v.literal("signed_in"),
+    ),
+    // Free-form context for the event. Used for "new email is X" on
+    // an email change, etc. Never trust client values for auth —
+    // this is display-only.
+    metadata: v.optional(v.any()),
+    createdAt: v.number(),
+  })
+    .index("by_user", ["userId"])
+    .index("by_user_created", ["userId", "createdAt"]),
 });

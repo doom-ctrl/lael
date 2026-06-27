@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LogOut, Plus, Search } from 'lucide-react';
-import { cn, getInitials } from '@/lib/utils';
+import { LogOut, Menu, Plus, Search, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/features/auth/useAuth';
 import { authClient } from '@/lib/auth-client';
 import { useAddAssessmentDialog } from '@/components/modals/AddAssessmentDialogProvider';
 import { useCommandPalette } from '@/components/providers/CommandPaletteProvider';
 import { toast } from '@/components/providers/Toaster';
+import { Avatar } from '@/components/common/Avatar';
+import { useUserImage } from '@/features/profile/useUserImage';
 
 interface NavbarProps {
   /** Optional click handler override (e.g. in tests). Falls back to the global dialog. */
@@ -37,12 +39,16 @@ const NAV_ITEMS: NavItem[] = [
 export function Navbar({ onAddClick }: NavbarProps) {
   const [scrolled, setScrolled] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  // Mobile nav drawer — separate state from the avatar menu so
+  // they can be open/closed independently.
+  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const dialog = useAddAssessmentDialog();
   const palette = useCommandPalette();
   const handleAddClick = onAddClick ?? dialog.open;
   const { user } = useAuth();
+  const { imageUrl } = useUserImage();
   const menuRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
@@ -51,6 +57,11 @@ export function Navbar({ onAddClick }: NavbarProps) {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Auto-close the mobile drawer on route change.
+  React.useEffect(() => {
+    setMobileNavOpen(false);
+  }, [location.pathname]);
 
   // Close the avatar menu on outside click / Escape.
   React.useEffect(() => {
@@ -96,9 +107,6 @@ export function Navbar({ onAddClick }: NavbarProps) {
   };
 
   const displayName = user?.name ?? user?.email ?? '?';
-  const avatarInitial = user?.name
-    ? getInitials(user.name)
-    : (user?.email?.[0]?.toUpperCase() ?? '?');
 
   return (
     <nav
@@ -115,35 +123,20 @@ export function Navbar({ onAddClick }: NavbarProps) {
           : 'border-b border-transparent',
       )}
     >
-      <div className="mx-auto flex h-16 max-w-[1500px] items-center px-9">
+      <div className="mx-auto flex h-16 max-w-[1500px] items-center px-4 sm:px-6 md:px-9">
         {/* Logo */}
         <Link
           to="/"
           className="flex flex-shrink-0 items-center gap-2.5 text-text-primary no-underline"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M3 4h10M3 8h7M3 12h5"
-                stroke="white"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
+          <img src="/logo.svg" alt="" aria-hidden="true" className="h-8 w-8" />
           <span className="font-display text-xl font-normal italic tracking-[-0.02em] text-text-primary">
             Lael
           </span>
         </Link>
 
-        {/* Nav links */}
-        <div className="ml-10 flex items-center gap-1">
+        {/* Nav links — hidden on mobile, shown in the hamburger drawer instead */}
+        <div className="ml-10 hidden items-center gap-1 md:flex">
           {NAV_ITEMS.map((item) => {
             const isActive = item.key === activeKey;
             return (
@@ -164,7 +157,7 @@ export function Navbar({ onAddClick }: NavbarProps) {
         </div>
 
         {/* Right side */}
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={palette.open}
@@ -174,27 +167,51 @@ export function Navbar({ onAddClick }: NavbarProps) {
               'flex h-9 items-center gap-2 rounded-lg border border-border bg-surface',
               'pl-[10px] pr-2.5 text-text-secondary transition-colors',
               'hover:bg-bg-warm',
-              'min-w-[120px] sm:min-w-[160px]',
+              // On mobile, collapse to an icon-only square.
+              'w-9 justify-center p-0 sm:w-auto sm:min-w-[160px] sm:justify-start sm:pl-[10px] sm:pr-2.5',
             )}
           >
             <Search className="h-3.5 w-3.5 flex-shrink-0" strokeWidth={1.4} />
-            <span className="flex-1 text-left text-[12px] text-text-tertiary">
+            <span className="hidden flex-1 text-left text-[12px] text-text-tertiary sm:block">
               Search…
             </span>
             <kbd
               className={cn(
-                'rounded border border-border-light bg-bg-warm px-1.5 py-0.5',
-                'text-[10px] font-medium font-mono tracking-wider text-text-tertiary',
+                'hidden rounded border border-border-light bg-bg-warm px-1.5 py-0.5',
+                'text-[10px] font-medium font-mono tracking-wider text-text-tertiary sm:inline-block',
               )}
             >
               ⌘K
             </kbd>
           </button>
 
-          <Button onClick={handleAddClick} className="px-[18px]">
+          <Button
+            onClick={handleAddClick}
+            // Mobile: icon-only square. Desktop: full label.
+            className="h-9 w-9 p-0 sm:w-auto sm:px-[18px]"
+            aria-label="Add Assessment"
+          >
             <Plus className="h-3 w-3" strokeWidth={1.8} />
-            Add Assessment
+            <span className="hidden sm:inline">Add Assessment</span>
           </Button>
+
+          {/* Mobile menu toggle — only shown below `md`. */}
+          <button
+            type="button"
+            onClick={() => setMobileNavOpen((o) => !o)}
+            aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileNavOpen}
+            className={cn(
+              'flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface',
+              'text-text-secondary transition-colors hover:bg-bg-warm md:hidden',
+            )}
+          >
+            {mobileNavOpen ? (
+              <X className="h-3.5 w-3.5" strokeWidth={1.6} />
+            ) : (
+              <Menu className="h-3.5 w-3.5" strokeWidth={1.6} />
+            )}
+          </button>
 
           {/* Avatar + sign-out menu */}
           <div className="relative" ref={menuRef}>
@@ -206,15 +223,15 @@ export function Navbar({ onAddClick }: NavbarProps) {
               aria-expanded={menuOpen}
               title={displayName}
               className={cn(
-                'flex h-9 w-9 items-center justify-center rounded-full',
-                'bg-accent-light text-accent',
-                'border border-accent-border',
-                'transition-transform hover:scale-105',
+                'transition-transform hover:scale-105 rounded-full',
               )}
             >
-              <span className="font-display text-[13px] font-semibold italic">
-                {avatarInitial}
-              </span>
+              <Avatar
+                src={imageUrl}
+                name={user?.name}
+                email={user?.email}
+                size={36}
+              />
             </button>
 
             {menuOpen && (
@@ -262,6 +279,33 @@ export function Navbar({ onAddClick }: NavbarProps) {
           </div>
         </div>
       </div>
+
+      {/* Mobile nav drawer — slides down below the navbar. Items
+          mirror the desktop nav links; clicking one navigates and
+          the drawer auto-closes (via the location effect above). */}
+      {mobileNavOpen && (
+        <div className="border-t border-border-light bg-surface md:hidden">
+          <div className="mx-auto flex max-w-[1500px] flex-col gap-0.5 px-2 py-2">
+            {NAV_ITEMS.map((item) => {
+              const isActive = item.key === activeKey;
+              return (
+                <Link
+                  key={item.key}
+                  to={item.path}
+                  className={cn(
+                    'rounded-md px-3 py-2 text-[13.5px] no-underline transition-colors',
+                    isActive
+                      ? 'bg-accent-light font-medium text-accent'
+                      : 'font-normal text-text-secondary hover:bg-bg-warm hover:text-text-primary',
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

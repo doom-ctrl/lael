@@ -37,6 +37,9 @@ const DialogContent = React.forwardRef<
       className={cn(
         'fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2',
         'w-full max-w-[520px] max-h-[calc(100vh-48px)]',
+        // On mobile, leave 12px gutters so the modal never touches
+        // the screen edge. On `sm+`, center with no extra margin.
+        'mx-3 sm:mx-0',
         'flex flex-col overflow-hidden',
         'bg-surface rounded-xl',
         'shadow-[0_32px_100px_-20px_rgba(28,25,23,0.4),0_0_0_1px_rgba(28,25,23,0.06)]',

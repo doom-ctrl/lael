@@ -1,6 +1,14 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Download, Edit, LogOut } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  Camera,
+  Download,
+  Edit,
+  KeyRound,
+  LogOut,
+  Mail,
+  Trash2,
+} from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageContainer } from '@/components/layout/PageContainer';
@@ -11,13 +19,15 @@ import {
 } from '@/components/common/SettingsSection';
 import { SegmentedControl } from '@/components/common/SegmentedControl';
 import { Toggle } from '@/components/common/Toggle';
+import { Avatar } from '@/components/common/Avatar';
 import { useAuth } from '@/features/auth/useAuth';
 import { authClient } from '@/lib/auth-client';
 import { useUserPreferences } from '@/features/preferences/useUserPreferences';
 import { useAssessments } from '@/features/assessments/useAssessments';
+import { useUserImage } from '@/features/profile/useUserImage';
+import { SecurityActivityFeed } from '@/components/common/SecurityActivityFeed';
 import {
   cn,
-  getInitials,
 } from '@/lib/utils';
 import {
   DEFAULT_PREFERENCES,
@@ -195,7 +205,17 @@ export function SettingsPage() {
   const { user } = useAuth();
   const { prefs, raw, update } = useUserPreferences();
   const assessments = useAssessments();
+  const { imageUrl, isUploading, upload, remove: removeImage } = useUserImage();
   const [editingProfile, setEditingProfile] = React.useState(false);
+  const [previewUrl, setPreviewUrl] = React.useState<string | null>(null);
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
+
+  // Revoke object URLs on unmount / when replaced so we don't leak
+  // a blob per upload.
+  React.useEffect(() => {
+    if (!previewUrl) return;
+    return () => URL.revokeObjectURL(previewUrl);
+  }, [previewUrl]);
 
   // `prefs` is the merged view (defaults fill missing fields).
   // `raw`  is the on-disk doc, used to know whether the user has any
@@ -276,16 +296,50 @@ export function SettingsPage() {
           {/* ─── Profile ────────────────────────────────────────────── */}
           <SettingsSection title="Profile">
             <div className="flex items-center gap-3.5 py-2.5">
-              <div
+              {/* Avatar — clickable while editing to open the file picker. */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (editingProfile && !isUploading) fileInputRef.current?.click();
+                }}
+                disabled={!editingProfile || isUploading}
+                title={editingProfile ? 'Choose a new photo' : undefined}
+                aria-label={editingProfile ? 'Change profile photo' : undefined}
                 className={cn(
-                  'flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full',
-                  'border border-accent-border bg-accent-light',
+                  'relative flex-shrink-0 rounded-full',
+                  editingProfile && !isUploading
+                    ? 'cursor-pointer hover:opacity-90'
+                    : 'cursor-default',
+                  isUploading && 'cursor-wait opacity-70',
                 )}
               >
-                <span className="font-display text-[19px] font-semibold italic text-accent">
-                  {getInitials(user?.name ?? user?.email ?? '?')}
-                </span>
-              </div>
+                <Avatar
+                  src={previewUrl ?? imageUrl}
+                  name={user?.name}
+                  email={user?.email}
+                  size={48}
+                />
+                {editingProfile && !isUploading && (
+                  <span
+                    className={cn(
+                      'absolute inset-0 flex items-center justify-center rounded-full',
+                      'bg-black/35 text-white opacity-0 transition-opacity',
+                      'hover:opacity-100 focus-visible:opacity-100',
+                    )}
+                    aria-hidden="true"
+                  >
+                    <Camera className="h-4 w-4" strokeWidth={1.8} />
+                  </span>
+                )}
+                {isUploading && (
+                  <span
+                    className="absolute inset-0 flex items-center justify-center rounded-full bg-black/40"
+                    aria-hidden="true"
+                  >
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  </span>
+                )}
+              </button>
               <div className="min-w-0 flex-1">
                 <div className="text-[13px] font-medium text-text-primary">
                   {user?.name ?? 'Signed-in user'}
@@ -309,6 +363,74 @@ export function SettingsPage() {
 
             {editingProfile ? (
               <>
+                {/* Hidden file picker — driven by the avatar button + the
+                    explicit "Upload photo" button. Accepts images only. */}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    // Always clear the input so the same file can be
+                    // re-selected after a failure.
+                    e.target.value = '';
+                    if (!file) return;
+                    // Local preview while the upload runs.
+                    if (previewUrl) URL.revokeObjectURL(previewUrl);
+                    const localUrl = URL.createObjectURL(file);
+                    setPreviewUrl(localUrl);
+                    try {
+                      await upload(file);
+                      // Server has the file now — drop the local preview
+                      // so the avatar component renders the real URL.
+                      URL.revokeObjectURL(localUrl);
+                      setPreviewUrl(null);
+                    } catch {
+                      // Toast already shown; clear the local preview.
+                      URL.revokeObjectURL(localUrl);
+                      setPreviewUrl(null);
+                    }
+                  }}
+                />
+
+                <SettingsRow
+                  label="Profile photo"
+                  description={
+                    isUploading
+                      ? 'Uploading…'
+                      : imageUrl
+                        ? 'Shown in the navbar and anywhere your avatar appears.'
+                        : 'Add a photo to personalize your account.'
+                  }
+                  control={
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={isUploading}
+                        className={cn(
+                          buttonClass,
+                          isUploading && 'cursor-not-allowed opacity-50',
+                        )}
+                      >
+                        <Camera className="h-3 w-3" strokeWidth={1.6} />
+                        {imageUrl ? 'Change' : 'Upload'}
+                      </button>
+                      {imageUrl && !isUploading && (
+                        <button
+                          type="button"
+                          onClick={() => void removeImage()}
+                          className={cn(dangerButtonClass)}
+                          title="Remove profile photo"
+                        >
+                          <Trash2 className="h-3 w-3" strokeWidth={1.6} />
+                          Remove
+                        </button>
+                      )}
+                    </div>
+                  }
+                />
                 <SettingsRow
                   label="Name"
                   description="Display name shown in the greeting and avatar."
@@ -344,15 +466,15 @@ export function SettingsPage() {
                   }
                 />
                 <p className="mt-1 text-[10.5px] text-text-tertiary">
-                  Profile edits will be available in a future update. For
-                  now, name and email are set when you sign up.
+                  Name and email are managed by your sign-in account
+                  and cannot be changed here.
                 </p>
               </>
             ) : (
               <p className="text-[11px] text-text-tertiary">
                 Your name and email are read from your sign-in account.
                 Click <span className="font-medium text-text-secondary">Edit</span>{' '}
-                for more info.
+                to add a profile photo.
               </p>
             )}
           </SettingsSection>
@@ -585,6 +707,32 @@ export function SettingsPage() {
               }
             />
             <SettingsRow
+              label="Change email"
+              description="We'll send a verification link to the new address."
+              control={
+                <Link
+                  to="/settings/change-email"
+                  className={cn(buttonClass, 'no-underline')}
+                >
+                  <Mail className="h-3 w-3" strokeWidth={1.6} />
+                  Change
+                </Link>
+              }
+            />
+            <SettingsRow
+              label="Change password"
+              description="You'll stay signed in on this device only."
+              control={
+                <Link
+                  to="/settings/change-password"
+                  className={cn(buttonClass, 'no-underline')}
+                >
+                  <KeyRound className="h-3 w-3" strokeWidth={1.6} />
+                  Change
+                </Link>
+              }
+            />
+            <SettingsRow
               label="Two-factor auth"
               description="Add an extra layer of security (Phase 6)."
               control={
@@ -610,6 +758,15 @@ export function SettingsPage() {
                 </button>
               }
             />
+
+            {/* Recent security activity — surfaces password / email /
+                avatar changes so the user can spot unauthorized ones. */}
+            <div className="mt-3 border-t border-border-light pt-3">
+              <div className="mb-1.5 text-[10.5px] font-medium uppercase tracking-[0.06em] text-text-tertiary">
+                Recent security activity
+              </div>
+              <SecurityActivityFeed limit={5} />
+            </div>
           </SettingsSection>
         </div>
 

@@ -5,6 +5,12 @@ import { query } from "./_generated/server";
 import type { DataModel } from "./_generated/dataModel";
 import { components } from "./_generated/api";
 import authConfig from "./auth.config";
+import {
+  renderApproveEmailChange,
+  renderPasswordReset,
+  renderVerifyEmail,
+  sendEmail,
+} from "./internal/email";
 
 /**
  * Convex auth backend.
@@ -77,6 +83,53 @@ export const createAuth = (ctx: GenericCtx<DataModel>) => {
       enabled: true,
       requireEmailVerification: false,
       minPasswordLength: 8,
+      // Revoke every other active session when the user resets via
+      // email link — matches the manual `changePassword` flow's
+      // `revokeOtherSessions: true` so a stolen reset link can't keep
+      // the attacker's session alive after the legitimate user recovers.
+      revokeSessionsOnPasswordReset: true,
+      sendResetPassword: async ({ user, url }) => {
+        const { html, text, subject } = renderPasswordReset({
+          url,
+          name: user.name,
+        });
+        // `void` (don't await) for timing-attack resistance — see
+        // note in `convex/internal/email.ts`.
+        void sendEmail({ to: user.email, toName: user.name, subject, html, text });
+      },
+    },
+    // Email verification (used by the changeEmail flow + sign-up
+    // verification if `requireEmailVerification` is flipped on later).
+    // Better Auth calls this whenever it needs to send a verification
+    // link — we route everything through the shared Brevo helper.
+    emailVerification: {
+      sendVerificationEmail: async ({ user, url }) => {
+        const { html, text, subject } = renderVerifyEmail({
+          url,
+          name: user.name,
+        });
+        void sendEmail({ to: user.email, toName: user.name, subject, html, text });
+      },
+    },
+    // Change-email flow. The feature is disabled by default in
+    // Better Auth — opt in here. We also wire `sendChangeEmailConfirmation`
+    // so the *current* address owner gets an approval link. Both
+    // links have to be clicked before the swap takes effect (Belt
+    // and Braces against an attacker who has the password).
+    user: {
+      changeEmail: {
+        enabled: true,
+        sendChangeEmailConfirmation: async ({ user, newEmail, url }) => {
+          const { html, text, subject } = renderApproveEmailChange({
+            url,
+            newEmail,
+            name: user.name,
+          });
+          // Sent to the *current* email — Better Auth hands us the
+          // user record whose `email` is still the old address.
+          void sendEmail({ to: user.email, toName: user.name, subject, html, text });
+        },
+      },
     },
     // Session configuration: 30-day expiry, refresh every 7 days
     session: {

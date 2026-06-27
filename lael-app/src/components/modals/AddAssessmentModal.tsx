@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { DateField } from '@/components/ui/date-field';
 import { cn } from '@/lib/utils';
 import {
   ASSESSMENT_TYPE_LABELS,
@@ -411,12 +412,12 @@ export function AddAssessmentModal({
               </Field>
 
               <Field label="Due Date" required error={errors.dueDate}>
-                <Input
-                  type="date"
+                <DateField
                   value={values.dueDate}
-                  onChange={(e) => setField('dueDate', e.target.value)}
+                  onChange={(v) => setField('dueDate', v)}
                   onBlur={() => touchField('dueDate')}
-                  aria-invalid={!!errors.dueDate}
+                  invalid={!!errors.dueDate}
+                  disallowPast
                 />
               </Field>
 

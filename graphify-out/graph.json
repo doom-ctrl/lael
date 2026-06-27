@@ -4,144 +4,14 @@
   "graph": {},
   "nodes": [
     {
-      "label": "SettingsPage.tsx",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "pages_settingspage",
-      "community": 6,
-      "norm_label": "settingspage.tsx"
-    },
-    {
-      "label": "inputClass",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "pages_settingspage_inputclass",
-      "community": 6,
-      "norm_label": "inputclass"
-    },
-    {
-      "label": "buttonClass",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "pages_settingspage_buttonclass",
-      "community": 6,
-      "norm_label": "buttonclass"
-    },
-    {
-      "label": "dangerButtonClass",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "pages_settingspage_dangerbuttonclass",
-      "community": 6,
-      "norm_label": "dangerbuttonclass"
-    },
-    {
-      "label": "exportFilename()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "pages_settingspage_exportfilename",
-      "community": 6,
-      "norm_label": "exportfilename()"
-    },
-    {
-      "label": "assessmentToJSON()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L72",
-      "_origin": "ast",
-      "id": "pages_settingspage_assessmenttojson",
-      "community": 6,
-      "norm_label": "assessmenttojson()"
-    },
-    {
-      "label": "csvCell()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L93",
-      "_origin": "ast",
-      "id": "pages_settingspage_csvcell",
-      "community": 6,
-      "norm_label": "csvcell()"
-    },
-    {
-      "label": "assessmentToCSVRow()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "pages_settingspage_assessmenttocsvrow",
-      "community": 6,
-      "norm_label": "assessmenttocsvrow()"
-    },
-    {
-      "label": "CSV_HEADER",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L119",
-      "_origin": "ast",
-      "id": "pages_settingspage_csv_header",
-      "community": 6,
-      "norm_label": "csv_header"
-    },
-    {
-      "label": "downloadFile()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L138",
-      "_origin": "ast",
-      "id": "pages_settingspage_downloadfile",
-      "community": 6,
-      "norm_label": "downloadfile()"
-    },
-    {
-      "label": "buildJSONExport()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L152",
-      "_origin": "ast",
-      "id": "pages_settingspage_buildjsonexport",
-      "community": 6,
-      "norm_label": "buildjsonexport()"
-    },
-    {
-      "label": "buildCSVExport()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L169",
-      "_origin": "ast",
-      "id": "pages_settingspage_buildcsvexport",
-      "community": 6,
-      "norm_label": "buildcsvexport()"
-    },
-    {
-      "label": "SettingsPage()",
-      "file_type": "code",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L193",
-      "_origin": "ast",
-      "id": "pages_settingspage_settingspage",
-      "community": 6,
-      "norm_label": "settingspage()"
-    },
-    {
       "label": "utils.ts",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
       "source_location": "L1",
       "_origin": "ast",
+      "id": "lib_utils",
       "community": 1,
-      "norm_label": "utils.ts",
-      "id": "lib_utils"
+      "norm_label": "utils.ts"
     },
     {
       "label": "cn()",
@@ -149,79 +19,259 @@
       "source_file": "lael-app/src/lib/utils.ts",
       "source_location": "L10",
       "_origin": "ast",
+      "id": "lib_utils_cn",
       "community": 1,
-      "norm_label": "cn()",
-      "id": "lib_utils_cn"
-    },
-    {
-      "label": "DEMO_TODAY",
-      "file_type": "code",
-      "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "demo_today",
-      "id": "lib_utils_demo_today"
+      "norm_label": "cn()"
     },
     {
       "label": "formatDateBadge()",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L20",
+      "source_location": "L17",
       "_origin": "ast",
+      "id": "lib_utils_formatdatebadge",
       "community": 1,
-      "norm_label": "formatdatebadge()",
-      "id": "lib_utils_formatdatebadge"
+      "norm_label": "formatdatebadge()"
     },
     {
       "label": "daysUntil()",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L33",
+      "source_location": "L26",
       "_origin": "ast",
+      "id": "lib_utils_daysuntil",
       "community": 1,
-      "norm_label": "daysuntil()",
-      "id": "lib_utils_daysuntil"
+      "norm_label": "daysuntil()"
     },
     {
       "label": "isOverdue()",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L56",
+      "source_location": "L50",
       "_origin": "ast",
+      "id": "lib_utils_isoverdue",
       "community": 1,
-      "norm_label": "isoverdue()",
-      "id": "lib_utils_isoverdue"
+      "norm_label": "isoverdue()"
     },
     {
       "label": "formatLongDate()",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L71",
+      "source_location": "L66",
       "_origin": "ast",
+      "id": "lib_utils_formatlongdate",
       "community": 1,
-      "norm_label": "formatlongdate()",
-      "id": "lib_utils_formatlongdate"
+      "norm_label": "formatlongdate()"
     },
     {
       "label": "getGreeting()",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L80",
+      "source_location": "L75",
       "_origin": "ast",
+      "id": "lib_utils_getgreeting",
       "community": 1,
-      "norm_label": "getgreeting()",
-      "id": "lib_utils_getgreeting"
+      "norm_label": "getgreeting()"
     },
     {
       "label": "getInitials()",
       "file_type": "code",
       "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L89",
+      "source_location": "L84",
       "_origin": "ast",
+      "id": "lib_utils_getinitials",
       "community": 1,
-      "norm_label": "getinitials()",
-      "id": "lib_utils_getinitials"
+      "norm_label": "getinitials()"
+    },
+    {
+      "label": "CalendarPage.tsx",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "pages_calendarpage",
+      "community": 1,
+      "norm_label": "calendarpage.tsx"
+    },
+    {
+      "label": "CalendarPage()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "pages_calendarpage_calendarpage",
+      "community": 1,
+      "norm_label": "calendarpage()"
+    },
+    {
+      "label": "DayDetailPanelProps",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L236",
+      "_origin": "ast",
+      "id": "pages_calendarpage_daydetailpanelprops",
+      "community": 1,
+      "norm_label": "daydetailpanelprops"
+    },
+    {
+      "label": "DayDetailPanel()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L252",
+      "_origin": "ast",
+      "id": "pages_calendarpage_daydetailpanel",
+      "community": 1,
+      "norm_label": "daydetailpanel()"
+    },
+    {
+      "label": "PanelHeader()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L377",
+      "_origin": "ast",
+      "id": "pages_calendarpage_panelheader",
+      "community": 1,
+      "norm_label": "panelheader()"
+    },
+    {
+      "label": "DayItemCard()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L430",
+      "_origin": "ast",
+      "id": "pages_calendarpage_dayitemcard",
+      "community": 1,
+      "norm_label": "dayitemcard()"
+    },
+    {
+      "label": "SettingsPage.tsx",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "settingspage.tsx",
+      "id": "pages_settingspage"
+    },
+    {
+      "label": "inputClass",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L34",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "inputclass",
+      "id": "pages_settingspage_inputclass"
+    },
+    {
+      "label": "buttonClass",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "buttonclass",
+      "id": "pages_settingspage_buttonclass"
+    },
+    {
+      "label": "dangerButtonClass",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "dangerbuttonclass",
+      "id": "pages_settingspage_dangerbuttonclass"
+    },
+    {
+      "label": "exportFilename()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L59",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "exportfilename()",
+      "id": "pages_settingspage_exportfilename"
+    },
+    {
+      "label": "assessmentToJSON()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L72",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "assessmenttojson()",
+      "id": "pages_settingspage_assessmenttojson"
+    },
+    {
+      "label": "csvCell()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L93",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "csvcell()",
+      "id": "pages_settingspage_csvcell"
+    },
+    {
+      "label": "assessmentToCSVRow()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L103",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "assessmenttocsvrow()",
+      "id": "pages_settingspage_assessmenttocsvrow"
+    },
+    {
+      "label": "CSV_HEADER",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L119",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "csv_header",
+      "id": "pages_settingspage_csv_header"
+    },
+    {
+      "label": "downloadFile()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L138",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "downloadfile()",
+      "id": "pages_settingspage_downloadfile"
+    },
+    {
+      "label": "buildJSONExport()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L152",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "buildjsonexport()",
+      "id": "pages_settingspage_buildjsonexport"
+    },
+    {
+      "label": "buildCSVExport()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L169",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "buildcsvexport()",
+      "id": "pages_settingspage_buildcsvexport"
+    },
+    {
+      "label": "SettingsPage()",
+      "file_type": "code",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L193",
+      "_origin": "ast",
+      "community": 6,
+      "norm_label": "settingspage()",
+      "id": "pages_settingspage_settingspage"
     },
     {
       "label": "assessments.ts",
@@ -559,7 +609,7 @@
       "source_file": "lael-app/src/components/modals/AddAssessmentModal.tsx",
       "source_location": "L152",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "field()",
       "id": "modals_addassessmentmodal_field"
     },
@@ -668,148 +718,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L103",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_assessmenttocsvrow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L72",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_assessmenttojson",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L169",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_buildcsvexport",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L152",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_buildjsonexport",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_buttonclass",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L119",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_csv_header",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L93",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_csvcell",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_dangerbuttonclass",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L138",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_downloadfile",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_exportfilename",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_inputclass",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L193",
-      "weight": 1.0,
-      "source": "pages_settingspage",
-      "target": "pages_settingspage_settingspage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L105",
-      "weight": 1.0,
-      "source": "pages_settingspage_assessmenttocsvrow",
-      "target": "pages_settingspage_csvcell",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/pages/SettingsPage.tsx",
-      "source_location": "L172",
-      "weight": 1.0,
-      "source": "pages_settingspage_buildcsvexport",
-      "target": "pages_settingspage_assessmenttocsvrow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "lael-app/src/lib/utils.ts",
       "source_location": "L10",
       "weight": 1.0,
@@ -826,16 +734,6 @@
       "confidence_score": 1.0,
       "source": "lib_utils",
       "target": "lib_utils_daysuntil"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lael-app/src/lib/utils.ts",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "lib_utils",
-      "target": "lib_utils_demo_today"
     },
     {
       "relation": "contains",
@@ -908,6 +806,275 @@
       "weight": 1.0,
       "source": "modals_addassessmentmodal_field",
       "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "pages_calendarpage_calendarpage",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L265",
+      "weight": 1.0,
+      "source": "pages_calendarpage_daydetailpanel",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L451",
+      "weight": 1.0,
+      "source": "pages_calendarpage_dayitemcard",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "pages_calendarpage_panelheader",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L472",
+      "weight": 1.0,
+      "source": "pages_calendarpage_dayitemcard",
+      "target": "lib_utils_formatdatebadge"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L314",
+      "weight": 1.0,
+      "source": "pages_calendarpage_daydetailpanel",
+      "target": "lib_utils_daysuntil"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L441",
+      "weight": 1.0,
+      "source": "pages_calendarpage_dayitemcard",
+      "target": "lib_utils_isoverdue"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "pages_calendarpage",
+      "target": "pages_calendarpage_calendarpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "pages_calendarpage",
+      "target": "pages_calendarpage_daydetailpanel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L236",
+      "weight": 1.0,
+      "source": "pages_calendarpage",
+      "target": "pages_calendarpage_daydetailpanelprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L430",
+      "weight": 1.0,
+      "source": "pages_calendarpage",
+      "target": "pages_calendarpage_dayitemcard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/CalendarPage.tsx",
+      "source_location": "L377",
+      "weight": 1.0,
+      "source": "pages_calendarpage",
+      "target": "pages_calendarpage_panelheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_assessmenttocsvrow"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_assessmenttojson"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L169",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_buildcsvexport"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_buildjsonexport"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_buttonclass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_csv_header"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_csvcell"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_dangerbuttonclass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L138",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_downloadfile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_exportfilename"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_inputclass"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L193",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage",
+      "target": "pages_settingspage_settingspage"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage_assessmenttocsvrow",
+      "target": "pages_settingspage_csvcell"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lael-app/src/pages/SettingsPage.tsx",
+      "source_location": "L172",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "pages_settingspage_buildcsvexport",
+      "target": "pages_settingspage_assessmenttocsvrow"
     },
     {
       "relation": "contains",
@@ -1388,5 +1555,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c3296c482dd5315e3741ad24340f1fb9b24abaa1"
+  "built_at_commit": "6823f49a36bab90ec14b13a4193e541cb838a5bf"
 }

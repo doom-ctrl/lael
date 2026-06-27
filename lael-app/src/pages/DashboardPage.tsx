@@ -6,6 +6,8 @@ import { PageTransition } from '@/components/layout/PageTransition';
 import { StatCard } from '@/components/common/StatCard';
 import { EmptyState } from '@/components/common/EmptyState';
 import { LoadingState } from '@/components/common/LoadingState';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { QueryError } from '@/components/common/QueryError';
 import { AssessmentRow } from '@/features/assessments/AssessmentRow';
 import {
   useDashboardData,
@@ -81,6 +83,11 @@ export function DashboardPage() {
           }
         />
 
+        <ErrorBoundary
+          fallback={({ error, reset }) => (
+            <QueryError error={error} onRetry={reset} className="mt-6" />
+          )}
+        >
         {/* Empty state: no assessments at all. CTA to add the first one. */}
         {counts.total === 0 ? (
           <div className="mt-6">
@@ -316,6 +323,7 @@ export function DashboardPage() {
             </div>
           </>
         )}
+        </ErrorBoundary>
       </PageContainer>
     </PageTransition>
   );

@@ -325,8 +325,8 @@
     "semantic_hash": ""
   },
   "lael-app/src/lib/utils.ts": {
-    "mtime": 1781865225.6686704,
-    "ast_hash": "cefb5be58423179b0d313d2d996a292e",
+    "mtime": 1781865990.8159437,
+    "ast_hash": "c17a6b90ffd73446a9f1b9db997ea17e",
     "semantic_hash": ""
   },
   "lael-app/src/main.tsx": {
@@ -340,8 +340,8 @@
     "semantic_hash": ""
   },
   "lael-app/src/pages/CalendarPage.tsx": {
-    "mtime": 1781528423.2516637,
-    "ast_hash": "1e27305193728c893cfabc876714e8a6",
+    "mtime": 1781866008.872195,
+    "ast_hash": "05091de07712610da6a570c7131c3263",
     "semantic_hash": ""
   },
   "lael-app/src/pages/DashboardPage.tsx": {
