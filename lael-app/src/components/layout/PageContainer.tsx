@@ -21,7 +21,10 @@ export function PageContainer({
   return (
     <div
       className={cn(
-        'mx-auto w-full px-4 pt-[14px] pb-10 sm:px-6 sm:pt-[18px] sm:pb-[60px] md:px-8',
+        // Top padding clears the floating pill at its tallest state
+        // (top of page, h-10 + top-4 + breathing room). Locking the
+        // value prevents content from shifting during scroll compression.
+        'mx-auto w-full px-4 pt-[78px] pb-10 sm:px-6 sm:pt-[82px] sm:pb-[60px] md:px-8',
         fillHeight && 'flex min-h-0 flex-1 flex-col',
         className,
       )}
