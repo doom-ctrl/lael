@@ -208,9 +208,8 @@ export function AssessmentsPage() {
           )}
         >
 
-        {/* Sticky filter bar */}
+        {/* Filter bar — non-sticky; scrolls with the page. */}
         <AssessmentFilters
-          sticky
           search={search}
           onSearchChange={setSearch}
           filterType={filterType}
