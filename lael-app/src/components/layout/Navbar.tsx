@@ -58,6 +58,23 @@ export function Navbar({ onAddClick }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Mobile is always compact — the icon row (search, Add, hamburger,
+  // avatar) doesn't gain anything from expanding, and the search/Add
+  // width transitions were already hard-coded to 32px on `sm`-down.
+  // Deriving `compact` once here means every layout decision below
+  // reads the same single source instead of each computing its own
+  // `scrolled || isMobile` check.
+  const [isMobile, setIsMobile] = React.useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches,
+  );
+  React.useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  const compact = scrolled || isMobile;
+
   // Auto-close the mobile drawer on route change.
   React.useEffect(() => {
     setMobileNavOpen(false);
@@ -131,10 +148,10 @@ export function Navbar({ onAddClick }: NavbarProps) {
           // collapse from spilling during the transition.
           'mx-auto flex items-center overflow-hidden rounded-full',
           'border border-border bg-[var(--color-navbar-bg)] backdrop-blur-[16px]',
-          // Default (top of page) — generous, roomy.
+          // Default (top of page) — generous, roomy on desktop.
           'h-10 gap-3 px-2.5',
-          // Scrolled — compact (desktop only).
-          scrolled && 'md:h-9 md:gap-2 md:px-2',
+          // Compact (always on mobile, or after scroll on desktop).
+          compact && 'h-9 gap-2 px-2',
           'transition-[height,gap,padding,box-shadow,border-color,opacity] duration-300 ease-out motion-reduce:duration-0',
           scrolled ? 'shadow-soft' : 'shadow-none',
         )}
@@ -142,12 +159,12 @@ export function Navbar({ onAddClick }: NavbarProps) {
           // Width is `max-content` (intrinsic to children) so the pill
           // sizes itself — no fixed-px guessing, no clipping. The
           // child collapses (search → icon-only, Add → icon-only,
-          // nav gap-0) drive the natural width shrink on scroll.
-          // `max-w` keeps it inside the viewport gutter. Opacity
-          // dips on scroll so the settled pill feels quieter.
+          // nav gap-0) drive the natural width shrink on scroll (or
+          // permanently on mobile). `max-w` keeps it inside the
+          // viewport gutter. Opacity dips when compact.
           width: 'max-content',
           maxWidth: 'calc(100vw - 32px)',
-          opacity: scrolled ? 0.92 : 1,
+          opacity: compact ? 0.92 : 1,
         }}
       >
         {/* Logo — sized down a touch to suit the shorter pill bar. */}
@@ -173,7 +190,7 @@ export function Navbar({ onAddClick }: NavbarProps) {
         <div
           className={cn(
             'hidden items-center transition-[gap] duration-300 ease-out motion-reduce:duration-0 md:flex',
-            scrolled ? 'gap-0' : 'gap-1',
+            compact ? 'gap-0' : 'gap-1',
           )}
         >
           {NAV_ITEMS.map((item) => {
@@ -184,7 +201,7 @@ export function Navbar({ onAddClick }: NavbarProps) {
                 to={item.path}
                 className={cn(
                   'rounded-full text-[13.5px] no-underline transition-[padding] duration-300 ease-out motion-reduce:duration-0',
-                  scrolled ? 'px-3 py-1' : 'px-4 py-1.5',
+                  compact ? 'px-3 py-1' : 'px-4 py-1.5',
                   isActive
                     ? 'bg-accent-light font-medium text-accent'
                     : 'font-normal text-text-secondary hover:text-text-primary',
@@ -216,16 +233,16 @@ export function Navbar({ onAddClick }: NavbarProps) {
               'transition-[width,padding] duration-300 ease-out motion-reduce:duration-0',
             )}
             style={{
-              width: scrolled ? 32 : 180,
-              paddingLeft: scrolled ? 0 : 12,
-              paddingRight: scrolled ? 0 : 10,
+              width: compact ? 32 : 180,
+              paddingLeft: compact ? 0 : 12,
+              paddingRight: compact ? 0 : 10,
             }}
           >
             <Search className="h-3.5 w-3.5 flex-shrink-0" strokeWidth={1.4} />
             <span
               className={cn(
                 'text-left text-[12px] text-text-tertiary',
-                scrolled ? 'sr-only' : 'sm:flex-1',
+                compact ? 'sr-only' : 'sm:flex-1',
               )}
             >
               Search…
@@ -234,7 +251,7 @@ export function Navbar({ onAddClick }: NavbarProps) {
               className={cn(
                 'rounded border border-border-light bg-bg-warm px-1.5 py-0.5',
                 'text-[10px] font-medium font-mono tracking-wider text-text-tertiary',
-                scrolled ? 'hidden' : 'hidden sm:inline-block',
+                compact ? 'hidden' : 'hidden sm:inline-block',
               )}
             >
               ⌘K
@@ -251,9 +268,9 @@ export function Navbar({ onAddClick }: NavbarProps) {
               'transition-[width,padding] duration-300 ease-out motion-reduce:duration-0',
             )}
             style={{
-              width: scrolled ? 32 : 148,
-              paddingLeft: scrolled ? 0 : 16,
-              paddingRight: scrolled ? 0 : 16,
+              width: compact ? 32 : 148,
+              paddingLeft: compact ? 0 : 16,
+              paddingRight: compact ? 0 : 16,
             }}
             aria-label="Add Assessment"
           >
@@ -261,7 +278,7 @@ export function Navbar({ onAddClick }: NavbarProps) {
             <span
               className={cn(
                 'text-[13px]',
-                scrolled ? 'sr-only' : 'ml-1.5',
+                compact ? 'sr-only' : 'ml-1.5',
               )}
             >
               Add Assessment
